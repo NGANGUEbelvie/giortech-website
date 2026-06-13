@@ -1,0 +1,232 @@
+.homeContainer {
+  width: 100%;
+}
+
+/* --- CAROUSEL --- */
+.carouselContainer {
+  position: relative;
+  overflow: hidden;
+  height: 550px;
+  background-color: #1a3a5c;
+}
+
+.carouselSlide {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transform: scale(1.03);
+  transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+  display: flex;
+  align-items: center;
+  padding: 0 8%;
+  box-sizing: border-box;
+}
+
+.activeSlide {
+  opacity: 1;
+  transform: scale(1);
+  z-index: 1;
+}
+
+.slideContent {
+  max-width: 650px;
+  color: #ffffff;
+}
+
+.slideContent h1 {
+  font-size: 2.8rem;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 20px;
+}
+
+.slideContent p {
+  font-size: 1.15rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 35px;
+}
+
+.btnGroup {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.btnPrimary {
+  background-color: #0099CC;
+  color: #fff;
+  border: none;
+  padding: 14px 28px;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+  box-shadow: 0 4px 15px rgba(0, 153, 204, 0.3);
+}
+
+.btnPrimary:hover {
+  background-color: #0088bb;
+}
+
+.btnPrimary:active, .btnSecondary:active {
+  transform: scale(0.97);
+}
+
+.btnSecondary {
+  background: transparent;
+  color: #fff;
+  border: 2px solid #fff;
+  padding: 12px 28px;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.btnSecondary:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.carouselPagination {
+  position: absolute;
+  bottom: 25px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  display: flex;
+  gap: 10px;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #ffffff;
+  opacity: 0.3;
+  border: none;
+  cursor: pointer;
+  transition: opacity 0.3s;
+}
+
+.activeDot {
+  opacity: 1;
+}
+
+/* --- EXPERTISES --- */
+.expertisesSection {
+  background-color: #F4F7FB;
+  padding: 80px 8%;
+}
+
+.sectionHeader {
+  margin-bottom: 45px;
+}
+
+.sectionHeader h2 {
+  font-size: 2rem;
+  color: #1E5FA8;
+  margin-bottom: 10px;
+}
+
+.underline {
+  height: 5px;
+  width: 80px;
+  background-color: #0099CC;
+  border-radius: 10px;
+}
+
+.gridExpertises {
+  display: grid;
+  grid-template-cols: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+}
+
+.serviceCard {
+  background-color: #ffffff;
+  padding: 35px 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(26, 58, 92, 0.06);
+  transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+  border-bottom: 4px solid transparent;
+}
+
+.serviceCard:hover {
+  transform: translateY(-5px);
+  border-bottom-color: #0099CC;
+  box-shadow: 0 10px 25px rgba(26, 58, 92, 0.12);
+}
+
+.iconContainer {
+  font-size: 2.2rem;
+  margin-bottom: 20px;
+}
+
+.serviceCard h3 {
+  font-size: 1.3rem;
+  color: #002444;
+  margin-bottom: 12px;
+}
+
+.serviceCard p {
+  color: #666;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+/* --- CHIFFRES CLÉS --- */
+.statsSection {
+  background-color: #D6E4F7;
+  padding: 60px 8%;
+  text-align: center;
+}
+
+.gridStats {
+  display: grid;
+  grid-template-cols: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 30px;
+}
+
+.statBox {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.statCounter {
+  font-size: 3.5rem;
+  font-weight: 800;
+  color: #0099CC;
+  line-height: 1;
+}
+
+.statLabel {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 600;
+  color: #002444;
+  margin-top: 5px;
+}
+
+/* --- RESPONSIVITÉ MOBILE --- */
+@media (max-width: 768px) {
+  .carouselContainer {
+    height: 500px;
+  }
+  .slideContent h1 {
+    font-size: 1.9rem;
+  }
+  .slideContent p {
+    font-size: 1rem;
+  }
+  .expertisesSection {
+    padding: 60px 20px;
+  }
+}
