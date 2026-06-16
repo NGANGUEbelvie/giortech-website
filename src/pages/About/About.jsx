@@ -1,4 +1,5 @@
 import styles from './About.module.css';
+import img_services from '../../assets/img_services.png';
 
 export default function About() {
   const team = [
@@ -29,9 +30,12 @@ export default function About() {
       
       {/* 1. HERO SECTION */}
       <section className={styles.heroSection}>
-        <div className={styles.heroContent}>
+        <div className={styles.heroText}>
           <h1>Qui sommes-nous ?</h1>
           <p>Votre partenaire stratégique en ingénierie informatique et transformation digitale à Douala, dédié à l'excellence technologique en Afrique centrale.</p>
+        </div>
+        <div className={styles.heroImage}>
+          <img src={img_services} alt="GIORTECH IT Services Overview" />
         </div>
       </section>
 

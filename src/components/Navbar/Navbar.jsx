@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import styles from './Navbar.module.css';
-import logoCompany from '../../assets/logo-giortech.png';
+import Logo_giortech from '../../assets/Logo_giortech.png';
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -14,7 +14,7 @@ export default function Navbar() {
         {/* Logo de l'entreprise */}
 
         <Link to="/" className={styles.logoContainer} onClick={closeMenu}>
-          <img src={logoCompany} alt="Logo Officiel GIORTECH" className={styles.logoImg} />
+          <img src={Logo_giortech} alt="Logo Officiel GIORTECH" className={styles.logoImg} />
         </Link>
 
         {/* Bouton Menu Burger pour le Responsive Mobile */}

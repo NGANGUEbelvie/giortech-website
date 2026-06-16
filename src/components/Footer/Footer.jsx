@@ -6,11 +6,7 @@ export default function Footer() {
     <footer className={styles.footer}>
       <div className={styles.footerGrid}>
         
-        {/* Colonne 1 : Identité */}
-        <div className={styles.footerCol}>
-          <span className={styles.footerLogo}>GIOR<span>TECH</span></span>
-          <p className={styles.footerDesc}>Votre partenaire de confiance en ingénierie logicielle et transformation digitale au Cameroun.</p>
-        </div>
+
 
         {/* Colonne 2 : Liens Rapides */}
         <div className={styles.footerCol}>

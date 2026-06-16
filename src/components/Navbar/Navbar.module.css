@@ -1,5 +1,5 @@
 .header {
-  background-color: #154375;
+  background-color: white;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   position: sticky;
   top: 0;
@@ -21,8 +21,8 @@
 }
 
 .logoImg {
-  height: 45px; /* Ajuste cette valeur (ex: 40px, 50px) selon les proportions de ton logo */
-  width: auto;  /* Conserve le ratio de l'image pour ne pas la déformer */
+  height: 50px; 
+  width: auto;  
   object-fit: contain;
 }
 .logo span {
@@ -40,26 +40,26 @@
 
 .navLinks a {
   text-decoration: none;
-  color: #ffffff !important;
+  color: rgb(0, 115, 255) !important;
   font-weight: 500;
   transition: color 0.3s ease;
 }
 
 .navLinks a:hover, .activeLink {
-  color: #0070f3 !important;
+  color: #16469a !important;
 }
 
 /* Bouton Contact Spécial */
 .contactBtn {
-  background-color: #0070f3;
-  color: #ffffff !important;
+  background-color: rgb(147, 188, 239) !important;
+  color: black !important;
   padding: 10px 22px;
   border-radius: 5px;
   transition: background-color 0.3s ease !important;
 }
 
 .contactBtn:hover {
-  background-color: #0051b3;
+  background-color: transparent !important;
 }
 
 /* Responsivité Mobile (Menu Burger) */
@@ -67,7 +67,7 @@
   display: none;
   flex-direction: column;
   gap: 6px;
-  background: none;
+  background-color: transparent;
   border: none;
   cursor: pointer;
 }

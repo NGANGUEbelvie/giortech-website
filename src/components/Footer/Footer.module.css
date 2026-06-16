@@ -1,7 +1,9 @@
 .footer {
-  background-color: #154375;
+  background-color: rgb(18, 74, 240);
   color: #ffffff;
   padding: 70px 8% 30px 8%;
+  margin-top: 100px;
+  
 }
 
 .footerGrid {
@@ -9,6 +11,9 @@
   grid-template-cols: repeat(auto-fit, minmax(220px, 1fr));
   gap: 40px;
   margin-bottom: 5px;
+  display: flex;
+  justify-content: space-between;
+  -webkit-margin-bottom-collapse: 80px;
 }
 
 .footerCol h3 {
@@ -18,11 +23,7 @@
   position: relative;
 }
 
-.footerLogo {
-  font-size: 1.6rem;
-  font-weight: 700;
-  letter-spacing: 1px;
-}
+
 
 .footerLogo span {
   color: #0099CC;
@@ -66,7 +67,7 @@
 }
 
 .newsletterForm input {
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: white;
   border: none;
   padding: 12px;
   color: #fff;
@@ -76,11 +77,11 @@
 }
 
 .newsletterForm input:focus {
-  outline: 1px solid #0099CC;
+  outline: 1px solid #0070cc;
 }
 
 .newsletterForm button {
-  background-color: #0099CC;
+  background-color: #0047cc;
   color: white;
   border: none;
   padding: 0 18px;
@@ -91,7 +92,7 @@
 }
 
 .newsletterForm button:hover {
-  background-color: #0088bb;
+  background-color: #003bbb;
 }
 
 .footerBottom {

@@ -1,0 +1,231 @@
+/* --- CONFIGURATION GLOBALE --- */
+.servicesPageContainer {
+  width: 100%;
+  font-family: 'Inter', sans-serif;
+  background-color: #fcf9f8;
+  color: #1b1c1c;
+}
+
+/* --- HERO SECTION --- */
+.heroSection {
+  background-color: #ffffff;
+  padding: 80px 64px;
+  text-align: center;
+}
+
+.heroContent h1 {
+  font-size: 48px;
+  font-weight: 700;
+  color: #0356f0;
+  margin-bottom: 16px;
+}
+
+.heroContent p {
+  font-size: 18px;
+  line-height: 28px;
+  max-width: 768px;
+  margin: 0 auto;
+  color: #154375;
+  font-weight: 700;
+}
+
+/* --- SECTIONS SERVICES MÈTRES --- */
+.serviceSectionWhite {
+  background-color: #ffffff;
+  padding: 80px 64px;
+  overflow: hidden;
+}
+
+.serviceSectionGrey {
+  background-color: #f6f3f2;
+  padding: 80px 64px;
+  overflow: hidden;
+}
+
+.gridTwoCols {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: center;
+}
+
+/* --- EFFETS IMAGES & ANIMATION REVEAL --- */
+.imageGroup {
+  position: relative;
+}
+
+.imageShadowDecorator {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 36, 44, 0.05);
+  border-radius: 16px;
+  z-index: 1;
+  transition: transform 0.3s ease;
+}
+
+.decoratorLeft {
+  transform: translateX(-16px) translateY(16px);
+}
+
+.decoratorRight {
+  transform: translateX(16px) translateY(16px);
+}
+
+.imageGroup:hover .imageShadowDecorator {
+  transform: translateX(0px) translateY(0px);
+}
+
+.serviceCardImage {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 16px;
+  box-shadow: 0px 4px 20px rgba(26, 58, 92, 0.08);
+  position: relative;
+  z-index: 10;
+  
+  /* État initial caché pour le Scroll Reveal */
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 1s ease;
+}
+
+/* Classe injectée par l'intersection observer */
+.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* --- GENERIC SCROLL REVEAL --- */
+.scrollFadeIn {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.8s cubic-bezier(0.215, 0.61, 0.355, 1),
+              transform 0.8s cubic-bezier(0.215, 0.61, 0.355, 1);
+  will-change: opacity, transform;
+}
+
+.scrollFadeIn.animateVisible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Allow slight stagger when an index CSS var is provided inline */
+.animateVisible .serviceCardImage {
+  transition-delay: calc(var(--index, 0) * 120ms);
+}
+.animateVisible .textContent {
+  transition-delay: calc(var(--index, 0) * 120ms + 60ms);
+}
+
+/* --- BLOC TEXTE DES SERVICES --- */
+.textContent {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.textContent h2 {
+  font-size: 32px;
+  font-weight: 700;
+  color: #0356f0;
+}
+
+.serviceHighlight {
+  color: #154375;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 24px;
+}
+
+.bulletList {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.customBullet {
+  position: relative;
+  padding-left: 32px;
+  color: #154375;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 24px;
+}
+
+.customBullet::before {
+  content: 'check_circle';
+  font-family: 'Material Symbols Outlined';
+  position: absolute;
+  left: 0;
+  top: 2px;
+  color: #0099CC;
+  font-size: 20px;
+}
+
+/* --- CTA SECTION --- */
+.ctaSection {
+  background-color:whitesmoke;
+  padding: 80px 64px;
+  text-align: center;
+}
+
+.ctaContent h2 {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 16px;
+  color: #0356f0;
+}
+
+.ctaContent p {
+  font-size: 18px;
+  max-width: 672px;
+  margin: 0 auto 32px auto;
+  opacity: 0.9;
+  font-weight: 700;
+  color: #154375;
+}
+
+.ctaButton {
+  background-color: #0099CC;
+  color: #ffffff;
+  font-weight: 700;
+  padding: 16px 40px;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border: none;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  text-decoration: none;
+}
+
+.ctaButton:hover {
+  background-color: #006689;
+}
+
+.ctaButton:active {
+  transform: scale(0.95);
+}
+
+/* --- RESPONSIVITÉ --- */
+@media (max-width: 1024px) {
+  .gridTwoCols {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+}
+
+@media (max-width: 768px) {
+  .heroSection, .serviceSectionWhite, .serviceSectionGrey, .ctaSection {
+    padding: 60px 20px;
+  }
+  .heroContent h1 {
+    font-size: 30px;
+  }
+  .serviceCardImage {
+    height: 300px;
+  }
+}

@@ -32,6 +32,8 @@
   z-index: 1;
 }
 
+
+
 .slideContent {
   max-width: 650px;
   color: #ffffff;
@@ -55,6 +57,7 @@
   display: flex;
   gap: 15px;
   flex-wrap: wrap;
+  text-decoration: none;
 }
 
 .btnPrimary {
@@ -68,14 +71,17 @@
   cursor: pointer;
   transition: background 0.3s, transform 0.2s;
   box-shadow: 0 4px 15px rgba(0, 153, 204, 0.3);
+  text-decoration: none;
 }
 
 .btnPrimary:hover {
   background-color: #0088bb;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 153, 204, 0.4);
 }
 
 .btnPrimary:active, .btnSecondary:active {
-  transform: scale(0.97);
+  transform: scale(0.97) translateY(0);
 }
 
 .btnSecondary {
@@ -88,10 +94,13 @@
   border-radius: 6px;
   cursor: pointer;
   transition: background 0.3s, transform 0.2s;
+  text-decoration: none;
 }
 
 .btnSecondary:hover {
   background: rgba(255, 255, 255, 0.1);
+  color: #002444;
+  transform: translateY(-2px);
 }
 
 .carouselPagination {
@@ -123,6 +132,8 @@
 .expertisesSection {
   background-color: #F4F7FB;
   padding: 80px 8%;
+  display: flex;
+  flex-direction: column;
 }
 
 .sectionHeader {
@@ -131,20 +142,20 @@
 
 .sectionHeader h2 {
   font-size: 2rem;
-  color: #1E5FA8;
+  color: #0356f0;
   margin-bottom: 10px;
 }
 
 .underline {
   height: 5px;
   width: 80px;
-  background-color: #0099CC;
+  background-color: #0356f0;
   border-radius: 10px;
 }
 
 .gridExpertises {
   display: grid;
-  grid-template-cols: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 25px;
 }
 
@@ -155,10 +166,15 @@
   box-shadow: 0 4px 20px rgba(26, 58, 92, 0.06);
   transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
   border-bottom: 4px solid transparent;
+  opacity: 0;
+  transform: translateY(30px);
+  /* Fusion des transitions (apparition + survol) */
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease, 
+              opacity 0.6s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
 .serviceCard:hover {
-  transform: translateY(-5px);
+  transform: translateY(-6px);
   border-bottom-color: #0099CC;
   box-shadow: 0 10px 25px rgba(26, 58, 92, 0.12);
 }
@@ -185,18 +201,25 @@
   background-color: #D6E4F7;
   padding: 60px 8%;
   text-align: center;
+  margin-bottom: 80px;
+  
+ 
 }
 
 .gridStats {
   display: grid;
-  grid-template-cols: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 30px;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 100px;
+  margin-bottom: -10px;
 }
 
 .statBox {
   display: flex;
   flex-direction: column;
   gap: 5px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.9s ease, transform 0.9s ease;
 }
 
 .statCounter {
@@ -215,6 +238,58 @@
   margin-top: 5px;
 }
 
+.scrollFadeIn.animateVisible {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.9s cubic-bezier(0.215, 0.61, 0.355, 1),
+              transform 0.9s cubic-bezier(0.215, 0.61, 0.355, 1);
+  will-change: opacity, transform;
+}
+
+/* Déclenché par l'Intersection Observer JS */
+.animateVisible .serviceCard {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: calc(var(--card-index) * 150ms);
+}
+
+.animateVisible.statsSection .statBox {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: calc(var(--stat-index) * 100ms);
+}
+
+/* Animation séquentielle du texte à l'apparition du slide */
+.animatedTitle {
+  animation: slideInUp 0.6s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+.animateVisible .serviceCard:hover {
+  transition-delay: 0s;
+}
+
+.animatedDesc {
+  opacity: 0;
+  animation: slideInUp 0.6s cubic-bezier(0.25, 1, 0.5, 1) forwards 0.18s;
+}
+
+/* Évite que les boutons flashent avant l'animation */
+.carouselSlide .btnGroup {
+  opacity: 0;
+  animation: slideInUp 0.6s cubic-bezier(0.25, 1, 0.5, 1) forwards 0.35s;
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 /* --- RESPONSIVITÉ MOBILE --- */
 @media (max-width: 768px) {
   .carouselContainer {
@@ -228,5 +303,9 @@
   }
   .expertisesSection {
     padding: 60px 20px;
+  }
+  .gridStats {
+    gap: 40px;
+    flex-direction: column;
   }
 }
