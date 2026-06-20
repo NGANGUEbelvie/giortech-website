@@ -1,6 +1,8 @@
 import styles from './Contact.module.css';
+import { useTranslation } from 'react-i18next';
 
 export default function Contact() {
+  const { t } = useTranslation();
   return (
     <div className={styles.contactContainer}>
       
@@ -84,7 +86,7 @@ export default function Contact() {
                   <div className={styles.cardText}>
                     <h3>Localisation</h3>
                     <p>Douala, Cameroun</p>
-                    <span className={styles.subText}>Centre d'Affaires, Akwa</span>
+                    <span className={styles.subText}>Makepe Bonamoussadi, face hotel Forprolux</span>
                   </div>
                 </div>
 
@@ -112,18 +114,16 @@ export default function Contact() {
 
               </div>
 
-              {/* FAUX COMPOSANT CARTE DE LOCALISATION */}
+              {/* CARTE DE LOCALISATION */}
               <div className={styles.mapPlaceholder}>
-                <div className={styles.mapCanvas}>
-                  <div className={styles.pinContainer}>
-                    <span className={`material-symbols-outlined ${styles.bouncePin}`}>location_on</span>
-                    <div className={styles.pinShadow}></div>
-                  </div>
-                </div>
-                <div className={styles.mapBadge}>
-                  <p className={styles.badgeTitle}>GIORTECH Douala HQ</p>
-                  <p className={styles.badgeSub}>Navigation GPS disponible</p>
-                </div>
+                <iframe
+                  width="100%"
+                  height="350"
+                  frameBorder="0"
+                  style={{ borderRadius: '12px' }}
+                  src="https://www.openstreetmap.org/export/embed.html?bbox=9.7079,3.9511,9.8279,4.1511&layer=mapnik&marker=4.0511,9.768"
+                  title="GIORTECH Douala HQ"
+                />
               </div>
 
             </div>
@@ -132,26 +132,7 @@ export default function Contact() {
         </div>
       </section>
 
-      {/* 3. SECTION STATISTIQUES / CONFIANCE */}
-      <section className={styles.trustSection}>
-        <div className={styles.trustInner}>
-          <div className={styles.trustContent}>
-            <h3>Prêt à moderniser votre infrastructure ?</h3>
-            <p>Plus de 50 entreprises locales et internationales nous font confiance pour leur transformation digitale.</p>
-          </div>
-          <div className={styles.statsContainer}>
-            <div className={styles.statItem}>
-              <p className={styles.statNumber}>150+</p>
-              <p className={styles.statLabel}>Projets Livrés</p>
-            </div>
-            <div className={styles.statDivider}></div>
-            <div className={styles.statItem}>
-              <p className={styles.statNumber}>12+</p>
-              <p className={styles.statLabel}>Ans d'Expertise</p>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* Section 'trust' supprimée */}
 
     </div>
   );

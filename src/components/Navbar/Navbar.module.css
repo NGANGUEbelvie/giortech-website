@@ -41,7 +41,7 @@
 .navLinks a {
   text-decoration: none;
   color: rgb(0, 115, 255) !important;
-  font-weight: 500;
+  font-weight: 700;
   transition: color 0.3s ease;
 }
 
@@ -51,7 +51,6 @@
 
 /* Bouton Contact Spécial */
 .contactBtn {
-  background-color: rgb(147, 188, 239) !important;
   color: black !important;
   padding: 10px 22px;
   border-radius: 5px;
@@ -114,5 +113,54 @@
 
   .navLinks li {
     margin: 15px 0;
+  }
+}
+
+/* --- BOUTONS TRADUCTION DANS LA NAVBAR --- */
+
+.langSwitcherItem {
+  display: flex;
+  align-items: center;
+}
+
+.langSwitcherNav {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  margin-left: 10px; /* Petit espace après le bouton contact */
+}
+
+.langSwitcherNav button {
+  background-color: #f1f5f9;
+  border: 1px solid #cbd5e1;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 700;
+  color: #154375;
+  transition: all 0.2s ease;
+}
+
+.langSwitcherNav button:hover {
+  background-color: #e2e8f0;
+}
+
+/* Style du bouton pour la langue active */
+.langSwitcherNav .activeLang {
+  background-color: #0356f0;
+  color: #ffffff !important;
+  border-color: #0356f0;
+}
+
+/* Alignement pour les petits écrans (Mobile) */
+@media (max-width: 768px) {
+  .langSwitcherItem {
+    justify-content: center;
+    margin-top: 10px;
+  }
+  
+  .langSwitcherNav {
+    margin-left: 0;
   }
 }

@@ -3,21 +3,35 @@
   width: 100%;
   font-family: 'Inter', sans-serif;
   background-color: #fcf9f8;
-  color: #1b1c1c;
+  color: black;
 }
 
 /* --- HERO SECTION --- */
 .heroSection {
-  background-color: #ffffff;
+  background-color:rgba(0, 136, 255, 0.1);;
   padding: 80px 64px;
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 50vh;
 }
 
+
 .heroContent h1 {
-  font-size: 48px;
+  font-size: 40px;
   font-weight: 700;
   color: #0356f0;
   margin-bottom: 16px;
+  text-align: center;
+}
+
+.heroContent {
+  max-width: 800px;
+  /* Limite la largeur maximale pour garder une belle lecture */
+  margin: 0 auto;
+  /* Centre le bloc global */
+  text-align: center;
+  /* Centre le titre et le texte par défaut */
 }
 
 .heroContent p {
@@ -27,6 +41,7 @@
   margin: 0 auto;
   color: #154375;
   font-weight: 700;
+  text-align: center;
 }
 
 /* --- SECTIONS SERVICES MÈTRES --- */
@@ -49,6 +64,32 @@
   grid-template-columns: 1fr 1fr;
   gap: 64px;
   align-items: center;
+}
+
+section:nth-of-type(even) .gridTwoCols {
+  /* On transforme la grille en Flexbox uniquement pour ces sections afin d'inverser l'ordre facilement */
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+/* On s'assure que le texte et l'image prennent chacun 50% de la largeur comme dans la grille */
+section:nth-of-type(even) .imageGroup,
+section:nth-of-type(even) .textContent {
+  flex: 1;
+  width: 50%;
+}
+
+/* Optionnel : Ajustement pour le responsive (écrans tactiles et mobiles) */
+@media (max-width: 1024px) {
+  section:nth-of-type(even) .gridTwoCols {
+    flex-direction: column;
+    /* Remet l'image au-dessus du texte sur mobile */
+  }
+
+  section:nth-of-type(even) .imageGroup,
+  section:nth-of-type(even) .textContent {
+    width: 100%;
+  }
 }
 
 /* --- EFFETS IMAGES & ANIMATION REVEAL --- */
@@ -85,7 +126,7 @@
   box-shadow: 0px 4px 20px rgba(26, 58, 92, 0.08);
   position: relative;
   z-index: 10;
-  
+
   /* État initial caché pour le Scroll Reveal */
   opacity: 0;
   transform: translateY(40px);
@@ -103,7 +144,7 @@
   opacity: 0;
   transform: translateY(24px);
   transition: opacity 0.8s cubic-bezier(0.215, 0.61, 0.355, 1),
-              transform 0.8s cubic-bezier(0.215, 0.61, 0.355, 1);
+    transform 0.8s cubic-bezier(0.215, 0.61, 0.355, 1);
   will-change: opacity, transform;
 }
 
@@ -116,6 +157,7 @@
 .animateVisible .serviceCardImage {
   transition-delay: calc(var(--index, 0) * 120ms);
 }
+
 .animateVisible .textContent {
   transition-delay: calc(var(--index, 0) * 120ms + 60ms);
 }
@@ -168,7 +210,7 @@
 
 /* --- CTA SECTION --- */
 .ctaSection {
-  background-color:whitesmoke;
+  background-color: whitesmoke;
   padding: 80px 64px;
   text-align: center;
 }
@@ -219,12 +261,18 @@
 }
 
 @media (max-width: 768px) {
-  .heroSection, .serviceSectionWhite, .serviceSectionGrey, .ctaSection {
+
+  .heroSection,
+  .serviceSectionWhite,
+  .serviceSectionGrey,
+  .ctaSection {
     padding: 60px 20px;
   }
+
   .heroContent h1 {
     font-size: 30px;
   }
+
   .serviceCardImage {
     height: 300px;
   }

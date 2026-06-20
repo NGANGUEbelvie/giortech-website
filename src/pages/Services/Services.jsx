@@ -6,8 +6,14 @@ import IT from "../../assets/IT.png";
 import Cyber from "../../assets/Cyber.png";
 import img_services from "../../assets/img_services.png";
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 export default function Services() {
+  const { t } = useTranslation();
+
+
+  // Fonction pour basculer d'une langue à l'autre
+ 
   
   // Scroll reveal: observe any element with the `scrollFadeIn` class so
   // sections, text and images animate when entering the viewport and replay
@@ -41,6 +47,8 @@ export default function Services() {
 
   return (
     <div className={styles.servicesPageContainer}>
+
+      
       
       {/* Chargement sécurisé des polices et icônes Google */}
       <style>{`
@@ -56,7 +64,7 @@ export default function Services() {
         {/* HERO SECTION */}
         <section className={`${styles.heroSection} ${styles.scrollFadeIn}`}>
             {/* On réutilise la grille à deux colonnes existante */}
-            <div className={styles.gridTwoCols}>
+            
               
               {/* Colonne Gauche : Ton bloc de texte d'origine encapsulé */}
               <div className={`${styles.heroContent} ${styles.scrollFadeIn}`} style={{ '--index': 0 }}>
@@ -66,18 +74,8 @@ export default function Services() {
                 </p>
               </div>
 
-              {/* Colonne Droite : Le nouveau bloc d'image utilisant les classes de ton CSS */}
-              <div className={styles.imageGroup}>
-              <div className={`${styles.imageShadowDecorator} ${styles.decoratorRight}`}></div>
-              <img 
-                alt="GIORTECH IT Services Overview" 
-                className={`${styles.serviceCardImage} ${styles.scrollFadeIn}`} 
-                style={{ '--index': 0 }}
-                src={img_services} 
-              />
-            </div>
-
-            </div>
+              
+            
         </section>
 
         {/* SERVICE 1: UI/UX & BRANDING */}

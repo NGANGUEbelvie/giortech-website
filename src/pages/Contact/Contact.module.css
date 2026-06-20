@@ -1,18 +1,29 @@
 .contactContainer {
   width: 100%;
+  box-sizing: border-box;
+  padding: 0 20px;
 }
 
 /* --- PAGE HEADER --- */
 .pageHeader {
-  background-color: #ffffff;
-  padding: 80px 0;
+  background-color: rgba(0, 136, 255, 0.1);
+  padding: 120px 20px 80px;
   text-align: center;
+}
+
+.headerContent {
+  max-width: 760px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
 }
 
 .headerContent h1 {
   font-size: 3rem;
   font-weight: 700;
-  color: #1A3A5C;
+  color: #0356f0;
   margin-bottom: 16px;
   letter-spacing: -0.02em;
   line-height: 56px;
@@ -21,7 +32,7 @@
 .headerContent p {
   font-size: 1.125rem;
   line-height: 28px;
-  color: #43474e;
+  color: #001e2c;
   max-width: 42rem;
   margin: 0 auto;
 }
@@ -29,19 +40,19 @@
 /* --- MAIN CONTENT CONTAINER --- */
 .mainContentSection {
   background-color: #F4F7FB;
-  padding: 80px 0;
+  padding: 100px 0;
 }
 
 .sectionInner {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 0 64px;
+  padding: 0 20px;
 }
 
 .gridContainer {
   display: grid;
-  grid-template-cols: repeat(2, 1fr);
-  gap: 24px;
+  grid-template-columns: minmax(0, 1.65fr) minmax(0, 1fr);
+  gap: 40px;
   align-items: start;
 }
 
@@ -57,7 +68,7 @@
   font-size: 2rem;
   line-height: 40px;
   font-weight: 600;
-  color: #1B4E85;
+  color: #002444;
   margin-bottom: 32px;
 }
 
@@ -69,7 +80,7 @@
 
 .formRow {
   display: grid;
-  grid-template-cols: repeat(2, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 24px;
 }
 
@@ -89,7 +100,7 @@
 
 /* Micro-interaction native : si un élément à l'intérieur du formGroup a le focus, on colore le label */
 .formGroup:focus-within label {
-  color: #006689;
+  color: #0356f0;
 }
 
 .formGroup input,
@@ -149,7 +160,7 @@
 
 .infoCardsGrid {
   display: grid;
-  grid-template-columns: repeat(1, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 24px;
 }
 
@@ -160,7 +171,7 @@
   box-shadow: 0px 4px 20px rgba(26, 58, 92, 0.08);
   border-bottom: 4px solid transparent;
   display: flex;
-  align-items: start;
+  align-items: flex-start;
   gap: 16px;
   transition: all 0.3s ease;
 }
@@ -190,8 +201,16 @@
   margin-bottom: 4px;
 }
 
+.cardText {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
 .cardText p {
   color: #43474e;
+  margin: 0;
+  line-height: 1.7;
 }
 
 .subText {
@@ -300,15 +319,17 @@
 .trustInner {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 0 64px;
+  padding: 0 20px;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
-  gap: 24px;
+  gap: 32px;
+  flex-wrap: wrap;
 }
 
 .trustContent {
   max-width: 576px;
+  flex: 1 1 420px;
 }
 
 .trustContent h3 {
@@ -328,6 +349,7 @@
   display: flex;
   align-items: center;
   gap: 16px;
+  flex-wrap: wrap;
 }
 
 .statItem {
@@ -346,7 +368,7 @@
   font-size: 14px;
   font-weight: 600;
   text-transform: uppercase;
-  tracking: 0.05em;
+  letter-spacing: 0.05em;
   color: #43474e;
   margin-top: 4px;
 }
@@ -361,7 +383,7 @@
 /* --- RESPONSIVITÉ --- */
 @media (max-width: 1024px) {
   .gridContainer {
-    grid-template-cols: 1fr;
+    grid-template-columns: 1fr;
   }
 }
 
@@ -377,7 +399,7 @@
     padding: 32px 20px;
   }
   .formRow {
-    grid-template-cols: 1fr;
+    grid-template-columns: 1fr;
     gap: 24px;
   }
   .trustInner {

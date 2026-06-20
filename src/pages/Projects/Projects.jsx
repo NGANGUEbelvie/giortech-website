@@ -1,6 +1,9 @@
 import styles from './Projects.module.css';
+import IT from '../../assets/IT.png';
+import { useTranslation } from 'react-i18next';
 
 export default function Projects() {
+  const { t } = useTranslation();
   const categories = ["Tous", "Développement", "Design UI/UX", "Cloud & Hébergement", "Cybersécurité"];
 
   const projectList = [
@@ -46,7 +49,12 @@ export default function Projects() {
     <div className={styles.projectsContainer}>
       
       {/* 1. HERO SECTION */}
-      <section className={styles.heroSection}>
+      <section
+        className={styles.heroSection}
+        style={{
+          backgroundImage: `linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)), url(${IT})`
+        }}
+      >
         <div className={styles.heroContent}>
           <h1>Nos Réalisations &amp; Études de Cas</h1>
           <p>Explorez comment nous accompagnons les leaders de l'industrie dans leur transformation numérique avec des solutions IT sur-mesure et sécurisées.</p>
@@ -96,13 +104,6 @@ export default function Projects() {
                 </div>
               </div>
             ))}
-          </div>
-
-          {/* BOUTON VOIR PLUS */}
-          <div className={styles.paginationWrapper}>
-            <button className={styles.loadMoreBtn}>
-              Voir Plus de Projets
-            </button>
           </div>
         </div>
       </section>

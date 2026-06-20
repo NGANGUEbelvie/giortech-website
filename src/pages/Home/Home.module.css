@@ -309,3 +309,9 @@
     flex-direction: column;
   }
 }
+
+/* Assure-toi que le conteneur principal de l'accueil est en position: relative */
+.homePageContainer {
+  position: relative;
+}
+

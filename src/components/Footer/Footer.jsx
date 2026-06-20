@@ -1,7 +1,9 @@
 import { Link } from 'react-router-dom';
 import styles from './Footer.module.css';
+import { useTranslation } from 'react-i18next';
 
 export default function Footer() {
+  const { t } = useTranslation();
   return (
     <footer className={styles.footer}>
       <div className={styles.footerGrid}>
@@ -30,14 +32,6 @@ export default function Footer() {
         </div>
 
         {/* Colonne 4 : Newsletter */}
-        <div className={styles.footerCol}>
-          <h3>Newsletter</h3>
-          <p className={styles.newsletterText}>Recevez nos dernières actualités technologiques.</p>
-          <div className={styles.newsletterForm}>
-            <input type="email" placeholder="Votre email" />
-            <button>S'inscrire</button>
-          </div>
-        </div>
 
       </div>
       

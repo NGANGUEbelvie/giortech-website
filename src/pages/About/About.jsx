@@ -1,7 +1,10 @@
+import { useEffect } from 'react';
 import styles from './About.module.css';
 import img_services from '../../assets/img_services.png';
+import { useTranslation } from 'react-i18next';
 
 export default function About() {
+  const { t } = useTranslation();
   const team = [
     {
       name: "Marc Giosi",
@@ -25,22 +28,43 @@ export default function About() {
     }
   ];
 
+  useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add(styles.animateVisible);
+        } else {
+          entry.target.classList.remove(styles.animateVisible);
+        }
+      });
+    }, { threshold: 0.2 });
+
+    const elements = document.querySelectorAll(`.${styles.scrollFadeIn}`);
+    elements.forEach((element) => observer.observe(element));
+
+    return () => {
+      elements.forEach((element) => observer.unobserve(element));
+    };
+  }, []);
+
   return (
     <div className={styles.aboutContainer}>
       
       {/* 1. HERO SECTION */}
-      <section className={styles.heroSection}>
+      <section
+        className={`${styles.heroSection} ${styles.scrollFadeIn}`}
+        style={{
+          backgroundImage: `linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)), url(${img_services})`
+        }}
+      >
         <div className={styles.heroText}>
           <h1>Qui sommes-nous ?</h1>
           <p>Votre partenaire stratégique en ingénierie informatique et transformation digitale à Douala, dédié à l'excellence technologique en Afrique centrale.</p>
         </div>
-        <div className={styles.heroImage}>
-          <img src={img_services} alt="GIORTECH IT Services Overview" />
-        </div>
       </section>
 
       {/* 2. HISTOIRE & MISSION */}
-      <section className={styles.historyMissionSection}>
+      <section className={`${styles.historyMissionSection} ${styles.scrollFadeIn}`}>
         <div className={styles.gridTwoCols}>
           
           {/* Colonne Gauche : Histoire */}
@@ -48,7 +72,7 @@ export default function About() {
             <span className={styles.subTitle}>Notre Histoire</span>
             <h2>Une décennie d'excellence technologique.</h2>
             <p className={styles.description}>
-              Fondée avec la vision de combler le fossé technologique en Afrique centrale, GIORTECH s'est imposée comme un leader incontournable de l'IT. Notre parcours est marqué par une quête constante d'innovation et un engagement indéfectible envers la réussite de nos partenaires locaux et internationaux.
+              Née avec l'ambition de propulser la tech en Afrique centrale, GIORTECH est devenue un leader de l'IT. Notre moteur ? L'innovation continue et la réussite de nos partenaires locaux et internationaux
             </p>
             <div className={styles.imageWrapper}>
               <img 
@@ -82,7 +106,7 @@ export default function About() {
       </section>
 
       {/* 3. VALEURS FONDAMENTALES */}
-      <section className={styles.valuesSection}>
+      <section className={`${styles.valuesSection} ${styles.scrollFadeIn}`}>
         <div className={styles.sectionHeader}>
           <h2>Nos Valeurs Fondamentales</h2>
           <div className={styles.underline}></div>
@@ -113,7 +137,7 @@ export default function About() {
       </section>
 
       {/* 4. ÉQUIPE / LEADERSHIP */}
-      <section className={styles.teamSection}>
+      <section className={`${styles.teamSection} ${styles.scrollFadeIn}`}>
         <div className={styles.sectionHeaderCentered}>
           <h2>Le Leadership GIORTECH</h2>
           <p>Rencontrez les experts visionnaires qui pilotent l'innovation et garantissent votre succès technologique au quotidien.</p>
@@ -134,7 +158,7 @@ export default function About() {
       </section>
 
       {/* 5. STATISTIQUES */}
-      <section className={styles.statsSection}>
+      <section className={`${styles.statsSection} ${styles.scrollFadeIn}`}>
         <div className={styles.gridStats}>
           <div className={styles.statBox}>
             <span className={styles.statNumber}>12+</span>

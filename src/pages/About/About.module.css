@@ -1,18 +1,10 @@
 .aboutContainer {
   width: 100%;
+  box-sizing: border-box;
+  padding: 0 20px;
 }
 
 /* --- HERO SECTION --- */
-.heroSection {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  align-items: center;
-  gap: 40px;
-  background-color: #ffffff;
-  padding: 64px 64px;
-  box-sizing: border-box;
-}
-
 .heroText {
   max-width: 560px;
 }
@@ -20,7 +12,7 @@
 .heroText h1 {
   font-size: 3rem;
   font-weight: 700;
-  color: #0486f9;
+  color: #ffffff;
   margin-bottom: 24px;
   letter-spacing: -0.02em;
 }
@@ -28,22 +20,48 @@
 .heroText p {
   font-size: 1.15rem;
   line-height: 1.6;
-  color: #000000;
+  color: #ffffff;
   max-width: 560px;
   margin: 0;
 }
 
-.heroImage {
-  display: flex;
-  justify-content: center;
+.heroSection {
+  display: grid;
+  align-items: center;
+  gap: 40px;
+  background-color: #000000;
+  background-size: cover;
+  background-position: center;
+  padding: 120px 64px;
+  box-sizing: border-box;
+  width: calc(100% + 40px);
+  margin: 0 -20px;
+  max-width: none;
+  min-height: 420px;
 }
 
-.heroImage img {
-  width: 100%;
-  max-width: 540px;
-  height: auto;
-  border-radius: 24px;
-  box-shadow: 0 18px 55px rgba(0, 0, 0, 0.08);
+.scrollFadeIn {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.8s cubic-bezier(0.215, 0.61, 0.355, 1),
+              transform 0.8s cubic-bezier(0.215, 0.61, 0.355, 1);
+  will-change: opacity, transform;
+}
+
+.scrollFadeIn.animateVisible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.sectionHeader,
+.sectionHeaderCentered {
+  max-width: 760px;
+  margin: 0 auto 64px;
+}
+
+.valuesSection {
+  background-color: #F4F7FB;
+  padding: 80px 64px;
 }
 
 @media (max-width: 1024px) {
@@ -71,23 +89,23 @@
 
 .gridTwoCols {
   display: grid;
-  grid-template-cols: 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
   gap: 64px;
   align-items: start;
 }
 
 .column h2 {
-  font-size: 2rem;
-  color: #002444;
+  font-size: 25px;
+  color: #154375;
   font-weight: 600;
   margin-bottom: 24px;
   line-height: 40px;
 }
 
 .subTitle {
-  color: #006689;
-  font-size: 14px;
-  font-weight: 600;
+  color: #0356f0;
+  font-size: 40px;
+  font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.01em;
   margin-bottom: 8px;
@@ -111,11 +129,11 @@
 .imageWrapper img {
   width: 100%;
   height: 100%;
-  object-cover: cover;
+  object-fit: cover;
 }
 
 .columnRight {
-  padding-top: 48px;
+  padding-top: 0;
 }
 
 .cardsStack {
@@ -139,7 +157,7 @@
 
 .missionCard h3 {
   font-size: 1.5rem;
-  color: #002444;
+  color: #154375;
   font-weight: 600;
   margin-bottom: 12px;
 }
@@ -150,11 +168,29 @@
   line-height: 24px;
 }
 
+.cardsStack .missionCard {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.historyMissionSection.animateVisible .missionCard {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.historyMissionSection.animateVisible .missionCard:nth-child(1) {
+  transition-delay: 0.1s;
+}
+
+.historyMissionSection.animateVisible .missionCard:nth-child(2) {
+  transition-delay: 0.18s;
+}
+
 /* --- VALEURS FONDAMENTALES --- */
 .valuesSection {
   background-color: #F4F7FB;
   padding: 80px 64px;
-  display:flex;
 }
 
 .sectionHeader {
@@ -163,22 +199,61 @@
 }
 
 .sectionHeader h2 {
-  font-size: 2rem;
-  color: #002444;
+  font-size: 3rem;
+  color: #0356f0;
 }
 
 .underline {
   width: 80px;
   height: 4px;
-  background-color: #006689;
+  background-color: #0356f0;
   margin: 16px auto 0 auto;
   border-radius: 9999px;
 }
 
 .gridFourCols {
   display: grid;
-  grid-template-cols: repeat(auto-fit, minmax(240px, 1fr));
+  grid-template-columns: repeat(4, minmax(240px, 1fr));
   gap: 24px;
+}
+
+.valuesSection .valueCard {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.valuesSection.animateVisible .valueCard {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.valuesSection.animateVisible .valueCard:nth-child(1) {
+  transition-delay: 0.1s;
+}
+
+.valuesSection.animateVisible .valueCard:nth-child(2) {
+  transition-delay: 0.18s;
+}
+
+.valuesSection.animateVisible .valueCard:nth-child(3) {
+  transition-delay: 0.26s;
+}
+
+.valuesSection.animateVisible .valueCard:nth-child(4) {
+  transition-delay: 0.34s;
+}
+
+@media (max-width: 1200px) {
+  .gridFourCols {
+    grid-template-columns: repeat(2, minmax(240px, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .gridFourCols {
+    grid-template-columns: 1fr;
+  }
 }
 
 .valueCard {
@@ -237,8 +312,8 @@
 }
 
 .sectionHeaderCentered h2 {
-  font-size: 2rem;
-  color: #002444;
+  font-size: 3rem;
+  color: #0356f0;
   margin-bottom: 16px;
 }
 
@@ -250,7 +325,51 @@
 }
 
 .teamMember {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
   text-align: center;
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.teamSection.animateVisible .teamMember {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.teamSection.animateVisible .teamMember:nth-child(1) {
+  transition-delay: 0.1s;
+}
+
+.teamSection.animateVisible .teamMember:nth-child(2) {
+  transition-delay: 0.18s;
+}
+
+.teamSection.animateVisible .teamMember:nth-child(3) {
+  transition-delay: 0.26s;
+}
+
+.teamSection.animateVisible .teamMember:nth-child(4) {
+  transition-delay: 0.34s;
+}
+
+.teamSection.animateVisible .teamMember:nth-child(5) {
+  transition-delay: 0.42s;
+}
+
+.teamSection.animateVisible .teamMember:nth-child(6) {
+  transition-delay: 0.50s;
+}
+
+.teamSection.animateVisible .teamMember:nth-child(7) {
+  transition-delay: 0.58s;
+}
+
+.teamSection.animateVisible .teamMember:nth-child(8) {
+  transition-delay: 0.66s;
 }
 
 .avatarWrapper {
@@ -301,7 +420,7 @@
 
 /* --- STATISTIQUES --- */
 .statsSection {
-  background-color: #ffffff;
+  background-color: #D6E4F7;
   padding: 80px 64px;
   border-top: 1px solid #f0eded;
 }
@@ -309,16 +428,16 @@
 .gridStats {
   max-width: 1280px;
   margin: 0 auto;
-  display: grid;
-  grid-template-cols: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 48px;
-  text-align: center;
-}
+  display: flex;
+  flex-wrap: wrap;
+  gap: 200px;
+  text-align: center;  justify-items: center;}
+  
 
 .statNumber {
   font-size: 56px;
   font-weight: 800;
-  color: #002444;
+  color: #0099CC;
   letter-spacing: -0.03em;
   line-height: 1;
 }
@@ -348,8 +467,22 @@
   .heroSection, .historyMissionSection, .valuesSection, .teamSection, .statsSection {
     padding: 60px 20px;
   }
-  .heroContent h1 {
+  .heroSection {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  .heroText {
+    margin: 0 auto;
+    max-width: 100%;
+  }
+  .heroText h1 {
     font-size: 2.2rem;
+  }
+  .heroText p {
+    max-width: 100%;
+  }
+  .heroImage {
+    margin-top: 32px;
   }
   .imageWrapper {
     height: 300px;
