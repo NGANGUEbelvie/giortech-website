@@ -5,11 +5,27 @@ import Developpement from "../../assets/Developpement.png";
 import IT from "../../assets/IT.png";
 import Cyber from "../../assets/Cyber.png";
 import img_services from "../../assets/img_services.png";
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+
 
 export default function Services() {
   const { t } = useTranslation();
+  const { hash } = useLocation();
+
+  useEffect(() => {
+    if (hash) {
+      const targetId = hash.replace('#', '');
+      const element = document.getElementById(targetId);
+      
+      if (element) {
+        // Un léger délai permet d'attendre que le rendu ou les animations se lancent
+        setTimeout(() => {
+          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 100);
+      }
+    }
+  }, [hash]);
 
 
   // Fonction pour basculer d'une langue à l'autre
@@ -68,19 +84,17 @@ export default function Services() {
               
               {/* Colonne Gauche : Ton bloc de texte d'origine encapsulé */}
               <div className={`${styles.heroContent} ${styles.scrollFadeIn}`} style={{ '--index': 0 }}>
-                <h1>Nos Prestations & Solutions IT</h1>
+                <h1>{t('servicesHeroTitle')}</h1>
                 <p>
-                  GIORTECH accompagne les entreprises dans leur transformation digitale avec une expertise pointue et des solutions technologiques sur mesure, conçues pour allier performance, sécurité et innovation.
+                  {t('servicesHeroDesc')}
                 </p>
               </div>
 
-              
-            
-        </section>
+              </section>
 
         {/* SERVICE 1: UI/UX & BRANDING */}
-        <section className={`${styles.serviceSectionWhite} ${styles.scrollFadeIn}`}>
-          <div className={styles.gridTwoCols}>
+        <section id="uiux" className={`${styles.serviceSectionWhite} ${styles.scrollFadeIn}`}>
+          <div  className={styles.gridTwoCols}>
             <div className={styles.imageGroup}>
               <div className={`${styles.imageShadowDecorator} ${styles.decoratorLeft}`}></div>
               <img 
@@ -92,20 +106,20 @@ export default function Services() {
             </div>
             <div className={`${styles.textContent} ${styles.scrollFadeIn}`} style={{ '--index': 2 }}>
               <span className="material-symbols-outlined text-action-blue" style={{ fontSize: '48px', color: '#0356f0' }}>palette</span>
-              <h2>Design UI/UX & Branding Digital</h2>
+              <h2>{t('services1Title')}</h2>
               <p className={styles.serviceHighlight}>L'expérience utilisateur est au cœur de notre démarche créative pour garantir l'adoption et le succès de vos outils.</p>
               <ul className={styles.bulletList}>
-                <li className={styles.customBullet}>UX Research approfondie & Maquettage d'interfaces (Figma)</li>
-                <li className={styles.customBullet}>Création d'identités visuelles et logos distinctifs</li>
-                <li className={styles.customBullet}>Définition de chartes graphiques complètes et cohérentes</li>
-                <li className={styles.customBullet}>Motion design premium pour vos supports digitaux</li>
+                <li className={styles.customBullet}>{t('services1Bullet1')}</li>
+                <li className={styles.customBullet}>{t('services1Bullet2')}</li>
+                <li className={styles.customBullet}>{t('services1Bullet3')}</li>
+                <li className={styles.customBullet}>{t('services1Bullet4')}</li>
               </ul>
             </div>
           </div>
         </section>
 
         {/* SERVICE 2: WEB & MOBILE DEVELOPMENT */}
-        <section className={`${styles.serviceSectionGrey} ${styles.scrollFadeIn}`}>
+        <section id="frontend" className={`${styles.serviceSectionGrey} ${styles.scrollFadeIn}`}>
           <div className={styles.gridTwoCols}>
             <div className={styles.imageGroup}>
               <div className={`${styles.imageShadowDecorator} ${styles.decoratorRight}`}></div>
@@ -118,20 +132,20 @@ export default function Services() {
             </div>
             <div className={`${styles.textContent} ${styles.scrollFadeIn}`} style={{ '--index': 4 }}>
               <span className="material-symbols-outlined text-action-blue" style={{ fontSize: '48px', color: '#0356f0' }}>devices</span>
-              <h2>Développement Web & Mobile</h2>
-              <p className={styles.serviceHighlight}>Nous développons des solutions robustes et évolutives pour répondre aux besoins spécifiques de votre métier.</p>
+              <h2>{t('services2Title')}</h2>
+              <p className={styles.serviceHighlight}>{t('services2Highlight')}</p>
               <ul className={styles.bulletList}>
-                <li className={styles.customBullet}>Applications Web métiers (SaaS, ERP, CRM)</li>
-                <li className={styles.customBullet}>Applications Mobiles natives (iOS & Android)</li>
-                <li className={styles.customBullet}>Plateformes E-commerce performantes</li>
-                <li className={styles.customBullet}>Maintenance et évolutions applicatives</li>
+                <li className={styles.customBullet}>{t('services2Bullet1')}</li>
+                <li className={styles.customBullet}>{t('services2Bullet2')}</li>
+                <li className={styles.customBullet}>{t('services2Bullet3')}</li>
+                <li className={styles.customBullet}>{t('services2Bullet4')}</li>
               </ul>
             </div>
           </div>
         </section>
 
         {/* SERVICE 3: INFRASTRUCTURE CLOUD & DEVOPS */}
-        <section className={`${styles.serviceSectionWhite} ${styles.scrollFadeIn}`}>
+        <section id="cloud" className={`${styles.serviceSectionWhite} ${styles.scrollFadeIn}`}>
           <div className={styles.gridTwoCols}>
             <div className={styles.imageGroup}>
               <div className={`${styles.imageShadowDecorator} ${styles.decoratorLeft}`}></div>
@@ -144,20 +158,20 @@ export default function Services() {
             </div>
             <div className={`${styles.textContent} ${styles.scrollFadeIn}`} style={{ '--index': 6 }}>
               <span className="material-symbols-outlined text-action-blue" style={{ fontSize: '48px', color: '#0356f0' }}>cloud</span>
-              <h2>Infrastructure Cloud & DevOps</h2>
-              <p className={styles.serviceHighlight}>Propulsez votre entreprise vers la flexibilité et la haute disponibilité grâce à des architectures Cloud sécurisées et évolutives.</p>
+              <h2>{t('services3Title')}</h2>
+              <p className={styles.serviceHighlight}>{t('services3Highlight')}</p>
               <ul className={styles.bulletList}>
-                <li className={styles.customBullet}>Migration de vos serveurs et applications vers le Cloud (AWS, Azure, GCP)</li>
-                <li className={styles.customBullet}>Conteneurisation de vos applications pour un déploiement agile (Docker, Kubernetes)</li>
-                <li className={styles.customBullet}>Automatisation des déploiements et intégration continue (Pipelines CI/CD)</li>
-                <li className={styles.customBullet}>Supervision 24/7, optimisation des coûts Cloud et infogérance</li>
+                <li className={styles.customBullet}>{t('services3Bullet1')}</li>
+                <li className={styles.customBullet}>{t('services3Bullet2')}</li>
+                <li className={styles.customBullet}>{t('services3Bullet3')}</li>
+                <li className={styles.customBullet}>{t('services3Bullet4')}</li>
               </ul>
             </div>
           </div>
         </section>
 
         {/* SERVICE 4: CYBERSECURITY */}
-        <section className={`${styles.serviceSectionGrey} ${styles.scrollFadeIn}`}>
+        <section id="cyber" className={`${styles.serviceSectionGrey} ${styles.scrollFadeIn}`}>
           <div className={styles.gridTwoCols}>
             <div className={styles.imageGroup}>
               <div className={`${styles.imageShadowDecorator} ${styles.decoratorRight}`}></div>
@@ -170,13 +184,13 @@ export default function Services() {
             </div>
             <div className={`${styles.textContent} ${styles.scrollFadeIn}`} style={{ '--index': 8 }}>
               <span className="material-symbols-outlined text-action-blue" style={{ fontSize: '48px', color: '#0356f0' }}>security</span>
-              <h2>Cybersécurité & Audit IT</h2>
-              <p className={styles.serviceHighlight}>Protégez vos actifs les plus précieux grâce à une approche proactive de la sécurité informatique.</p>
+              <h2>{t('services4Title')}</h2>
+              <p className={styles.serviceHighlight}>{t('services4Highlight')}</p>
               <ul className={styles.bulletList}>
-                <li className={styles.customBullet}>Audit de sécurité complet des systèmes d'information</li>
-                <li className={styles.customBullet}>Tests d'intrusion et de vulnérabilité (Pentest)</li>
-                <li className={styles.customBullet}>Mise en conformité et protection globale des données</li>
-                <li className={styles.customBullet}>Formation et sensibilisation des équipes aux risques cyber</li>
+                <li className={styles.customBullet}>{t('services4Bullet1')}</li>
+                <li className={styles.customBullet}>{t('services4Bullet2')}</li>
+                <li className={styles.customBullet}>{t('services4Bullet3')}</li>
+                <li className={styles.customBullet}>{t('services4Bullet4')}</li>
               </ul>
             </div>
           </div>
@@ -185,10 +199,10 @@ export default function Services() {
         {/* CTA SECTION */}
         <section className={`${styles.ctaSection} ${styles.scrollFadeIn}`}>
           <div className={`${styles.ctaContent} ${styles.scrollFadeIn}`} style={{ '--index': 9 }}>
-            <h2>Un projet technologique en tête ?</h2>
-            <p>Nos experts sont prêts à évaluer vos besoins et à vous proposer une solution technique optimale adaptée à votre budget.</p>
+            <h2>{t('servicesCtaTitle')}</h2>
+            <p>{t('servicesCtaDesc')}</p>
             <Link to="/contact" className={styles.ctaButton}>
-              Demander un devis
+              {t('servicesCtaButton')}
             </Link>
           </div>
         </section>

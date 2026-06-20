@@ -26,10 +26,9 @@
 }
 
 .heroSection {
-  display: grid;
+  display: flex;
   align-items: center;
   gap: 40px;
-  background-color: #000000;
   background-size: cover;
   background-position: center;
   padding: 120px 64px;
@@ -38,6 +37,8 @@
   margin: 0 -20px;
   max-width: none;
   min-height: 420px;
+  justify-content: center;
+  text-align: center;
 }
 
 .scrollFadeIn {
@@ -324,99 +325,117 @@
   margin: 0 auto;
 }
 
-.teamMember {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 12px;
-  text-align: center;
-  opacity: 0;
-  transform: translateY(24px);
-  transition: opacity 0.8s ease, transform 0.8s ease;
+/* --- NOTRE ÉCOSYSTÈME TECHNIQUE --- */
+.techSection {
+  padding: 80px 64px;
+  max-width: 1280px;
+  margin: 0 auto;
 }
 
-.teamSection.animateVisible .teamMember {
+.techCategoriesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 32px;
+  margin-top: 48px;
+}
+
+.techCategoryCard {
+  background: linear-gradient(145deg, #ffffff, #fafbfc);
+  border: 1px solid rgba(21, 67, 117, 0.08); /* Bordure plus douce */
+  padding: 36px 28px;
+  border-radius: 20px; /* Coins plus modernes */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02);
+  transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+  opacity: 0;
+  transform: translateY(24px);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Animation au scroll liée à l'IntersectionObserver */
+.techSection.animateVisible .techCategoryCard {
   opacity: 1;
   transform: translateY(0);
 }
 
-.teamSection.animateVisible .teamMember:nth-child(1) {
-  transition-delay: 0.1s;
+/* Délais en cascade pour l'apparition des cartes */
+.techSection.animateVisible .techCategoryCard:nth-child(1) { transition: all 0.6s ease 0.1s; }
+.techSection.animateVisible .techCategoryCard:nth-child(2) { transition: all 0.6s ease 0.2s; }
+.techSection.animateVisible .techCategoryCard:nth-child(3) { transition: all 0.6s ease 0.3s; }
+.techSection.animateVisible .techCategoryCard:nth-child(4) { transition: all 0.6s ease 0.4s; }
+
+.techCategoryCard:hover {
+  transform: translateY(-10px) scale(1.01);
+  border-color: rgba(3, 86, 240, 0.3);
+  box-shadow: 0 20px 40px rgba(3, 86, 240, 0.06), 
+              0 1px 3px rgba(3, 86, 240, 0.02);
 }
 
-.teamSection.animateVisible .teamMember:nth-child(2) {
-  transition-delay: 0.18s;
+.techCategoryCard h3 {
+  font-size: 1.35rem;
+  color: #154375;
+  font-weight: 700;
+  margin-bottom: 28px;
+  letter-spacing: -0.01em;
 }
 
-.teamSection.animateVisible .teamMember:nth-child(3) {
-  transition-delay: 0.26s;
+/* Petite barre d'accentuation sous le titre du pôle */
+.techCategoryCard h3::after {
+  content: '';
+  display: block;
+  width: 40px;
+  height: 3px;
+  background: linear-gradient(90deg, #0356f0, #0099cc);
+  margin-top: 10px;
+  border-radius: 2px;
+  transition: width 0.4s ease;
 }
 
-.teamSection.animateVisible .teamMember:nth-child(4) {
-  transition-delay: 0.34s;
+.techBadgesList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
 }
 
-.teamSection.animateVisible .teamMember:nth-child(5) {
-  transition-delay: 0.42s;
+.techCategoryCard:hover h3::after {
+  width: 70px; /* La barre s'allonge quand on survole la carte */
 }
 
-.teamSection.animateVisible .teamMember:nth-child(6) {
-  transition-delay: 0.50s;
-}
-
-.teamSection.animateVisible .teamMember:nth-child(7) {
-  transition-delay: 0.58s;
-}
-
-.teamSection.animateVisible .teamMember:nth-child(8) {
-  transition-delay: 0.66s;
-}
-
-.avatarWrapper {
-  position: relative;
-  aspect-ratio: 4/5;
-  border-radius: 12px;
-  overflow: hidden;
-  background-color: #e4e2e1;
-  margin-bottom: 24px;
-}
-
-.avatarWrapper img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.5s ease;
-}
-
-.avatarOverlay {
-  position: absolute;
-  inset: 0;
-  background-color: rgba(0, 36, 68, 0.2);
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.teamMember:hover .avatarWrapper img {
-  transform: scale(1.05);
-}
-
-.teamMember:hover .avatarOverlay {
-  opacity: 1;
-}
-
-.teamMember h4 {
-  font-size: 1.5rem;
-  color: #002444;
-  margin-bottom: 4px;
-}
-
-.teamMember p {
-  color: #006689;
-  font-size: 14px;
+.techItem {
+  background-color: #f1f5fa;
+  color: #334155;
+  padding: 10px 18px;
+  border-radius: 10px; /* Coins plus harmonieux */
+  font-size: 0.92rem;
   font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
+  border: 1px solid rgba(226, 232, 240, 0.8);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: inline-block;
+  cursor: default;
 }
+
+.techCategoryCard:hover .techItem {
+  background-color: #ffffff;
+  border-color: rgba(3, 86, 240, 0.15);
+  color: #154375;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+}
+
+.techItem:hover {
+  background: linear-gradient(135deg, #0356f0, #0077c2) !important;
+  color: #ffffff !important;
+  border-color: transparent !important;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(3, 86, 240, 0.2) !important;
+}
+
+@media (max-width: 768px) {
+  .techSection {
+    padding: 60px 20px;
+  }
+}
+
+
 
 /* --- STATISTIQUES --- */
 .statsSection {
@@ -430,7 +449,7 @@
   margin: 0 auto;
   display: flex;
   flex-wrap: wrap;
-  gap: 200px;
+  gap: 180px;
   text-align: center;  justify-items: center;}
   
 

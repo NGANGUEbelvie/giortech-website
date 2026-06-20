@@ -2,31 +2,10 @@ import { useEffect } from 'react';
 import styles from './About.module.css';
 import img_services from '../../assets/img_services.png';
 import { useTranslation } from 'react-i18next';
+import Img_mission from '../../assets/Img_mission.png';
 
 export default function About() {
   const { t } = useTranslation();
-  const team = [
-    {
-      name: "Marc Giosi",
-      role: "CEO & Fondateur",
-      img: "https://lh3.googleusercontent.com/aida-public/AB6AXuA77c40SuAHqx5IRJwKFlcoLJGWk9l8gm2TmbWKJajQobOUh8CM-EphDsBKWnf4ExHRtX_DaW4s6nQYqWnIJOFamYldaDdMpvJt_rnrty0w5453zO9ecg17dlQg-9Kocyo2b26do39s8c3nckgz8HGvQ4_h1Ylt4TjnMygTCKgYX__MTDdnRPpVjhumdM5OmAiRoejLO0ufN91V1AbXmOZT2IJS9xa1qvlKA039ouzuKE5sTkjnG81LIaFtaGSo_UERCHxVnDRWnIk3"
-    },
-    {
-      name: "Sarah Kamga",
-      role: "Directrice Technique",
-      img: "https://lh3.googleusercontent.com/aida-public/AB6AXuCbHl616o-HHsXEOFBmi-fxGCt43462CUtnOxNDAuapbMaezF-fa5fgUVk2CHV0KsAHYig_wFBgwRRm2s7YceybbHeyVEG5Xm-uDBoqqDco0erBTNVP6qDSCNwyB6lV2PBaEmIq3fdsWVdbUL6KYGDsBpp2tjtKvfabQRlr56ZQSH4NrhDC7YbxHW31kUJkw-bl8Pr9WvKVrPTK8slEc3eK0-ZHknCtmIfEG56ITLc7nUrGXHrNCJhG--h2BDJRgxHy15dn33oMMXt1"
-    },
-    {
-      name: "Alain Tagne",
-      role: "Chef de la Sécurité IT",
-      img: "https://lh3.googleusercontent.com/aida-public/AB6AXuD3znZP7j8JoGNPHdwPd7txU0erN6Z9PmziPAkLGopk6N4rH6_s7B6krM4rd3eH3nLr6bg_bv3B_qzWAxGO5AMb3wyuxeckyfCLcinxd37Wao55hiqQbFc1Rh7eluKpmadCS2LL2g0okv9BCFXx7HWtQaLVaBQvJhk9vTboujcGAcZNi5WWW7cRquC5wQvR6Ze4bcEycx-rke2PC0MbBfL3pfOCswrB0Yo_zAUervLtOfrxNsg3I-TRG4K4BTCa0CXtd3l1BjUY_Klx"
-    },
-    {
-      name: "Elena Mvogo",
-      role: "Directrice de Projets",
-      img: "https://lh3.googleusercontent.com/aida-public/AB6AXuA7WYDP7BlVIgBF6Evoiv6EM2NP0t8L0biuJQnypJMvOrNlniTbWQ5ycTl0dj7lWhYzoiv0Nlndt9ro14iwazz0_t-SSsgvKRbcr1qePa9XBQkp1TZArnlHDKO0tJVrqZTzFvZM0pYys-XyX8DL9_UgjLW8N9WHQ3au-CU0UMQY-Nojo0byaJCZ2hDtT4Mdh1aiGInxGrP9kELygnl8-GW4S0I8equqmklQ7jXi0t-bJwSnc-7qgotYprZYKvR-OKF1J492HxGN8RL5"
-    }
-  ];
 
   useEffect(() => {
     const observer = new IntersectionObserver((entries) => {
@@ -54,12 +33,12 @@ export default function About() {
       <section
         className={`${styles.heroSection} ${styles.scrollFadeIn}`}
         style={{
-          backgroundImage: `linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)), url(${img_services})`
+          backgroundImage: `linear-gradient(rgb(132, 217, 253, 0.0), rgba(108, 196, 234, 0.0)), url(${img_services})`
         }}
       >
         <div className={styles.heroText}>
-          <h1>Qui sommes-nous ?</h1>
-          <p>Votre partenaire stratégique en ingénierie informatique et transformation digitale à Douala, dédié à l'excellence technologique en Afrique centrale.</p>
+          <h1>{t('aboutHeroTitle')}</h1>
+          <p>{t('aboutHeroDesc')}</p>
         </div>
       </section>
 
@@ -69,14 +48,14 @@ export default function About() {
           
           {/* Colonne Gauche : Histoire */}
           <div className={styles.column}>
-            <span className={styles.subTitle}>Notre Histoire</span>
-            <h2>Une décennie d'excellence technologique.</h2>
+            <span className={styles.subTitle}>{t('aboutHistorySub')}</span>
+            <h2>{t('aboutHistoryTitle')}</h2>
             <p className={styles.description}>
-              Née avec l'ambition de propulser la tech en Afrique centrale, GIORTECH est devenue un leader de l'IT. Notre moteur ? L'innovation continue et la réussite de nos partenaires locaux et internationaux
+              {t('aboutHistoryDesc')}
             </p>
             <div className={styles.imageWrapper}>
               <img 
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuB9508LMk15JO-SGqJRy67Lz8fFDyuj8pOiEpSkl10ESSCAb2TJ-Vi2esZ5FK7PAP-cP3ECN74qlMgDmjLINBOQvUdSpT-MZ0xJ_P_B6QR1jUgU20vkDNTpEQJahLMMj7-4oC3rogiMOG3wfypsXVTHgOaKGmnKhuhfsP73xK1EpTEMTcGU7cUHwr9OxgrBaAs0Or-b9TqBBAlkESVuRTyM_hqhOcgOuP0TLwtsKWbSbtNnEahp_AajuQ_mIzE4SPKcuLE1Isk7ZUwY" 
+                src={Img_mission} 
                 alt="Bureaux de GIORTECH" 
               />
             </div>
@@ -84,20 +63,20 @@ export default function About() {
 
           {/* Colonne Droite : Mission */}
           <div className={`${styles.column} ${styles.columnRight}`}>
-            <span className={styles.subTitle}>Notre Mission</span>
-            <h2>Sécuriser et propulser votre infrastructure.</h2>
+            <span className={styles.subTitle}>{t('aboutMissionSub')}</span>
+            <h2>{t('aboutMissionTitle')}</h2>
             <p className={styles.description}>
-              Nous accompagnons les entreprises dans leur transformation numérique en fournissant des solutions robustes, évolutives et parfaitement alignées avec les standards internationaux de sécurité.
+              {t('aboutMissionDesc')}
             </p>
             
             <div className={styles.cardsStack}>
               <div className={styles.missionCard}>
-                <h3>Innovation Continue</h3>
-                <p>Développer des solutions sur mesure qui anticipent les besoins du marché de demain grâce à une veille technologique constante.</p>
+                <h3>{t('aboutMissionCard1Title')}</h3>
+                <p>{t('aboutMissionCard1Desc')}</p>
               </div>
               <div className={styles.missionCard}>
-                <h3>Intégrité & Rigueur</h3>
-                <p>Bâtir des relations de confiance durables basées sur la transparence totale et une rigueur technique sans compromis.</p>
+                <h3>{t('aboutMissionCard2Title')}</h3>
+                <p>{t('aboutMissionCard2Desc')}</p>
               </div>
             </div>
           </div>
@@ -108,73 +87,109 @@ export default function About() {
       {/* 3. VALEURS FONDAMENTALES */}
       <section className={`${styles.valuesSection} ${styles.scrollFadeIn}`}>
         <div className={styles.sectionHeader}>
-          <h2>Nos Valeurs Fondamentales</h2>
+          <h2>{t('aboutValuesHeader')}</h2>
           <div className={styles.underline}></div>
         </div>
 
         <div className={styles.gridFourCols}>
           <div className={styles.valueCard}>
             <div className={styles.icon}>🛡️</div>
-            <h3>Sécurité</h3>
-            <p>La protection de vos données et de vos actifs numériques est notre priorité absolue dans chaque déploiement.</p>
+            <h3>{t('aboutValue1Title')}</h3>
+            <p>{t('aboutValue1Desc')}</p>
           </div>
           <div className={styles.valueCard}>
             <div className={styles.icon}>⚡</div>
-            <h3>Agilité</h3>
-            <p>Nous nous adaptons rapidement aux évolutions technologiques pour maintenir votre avantage compétitif.</p>
+            <h3>{t('aboutValue2Title')}</h3>
+            <p>{t('aboutValue2Desc')}</p>
           </div>
           <div className={styles.valueCard}>
             <div className={styles.icon}>🤝</div>
-            <h3>Proximité</h3>
-            <p>Une équipe locale à Douala, hautement disponible et à l'écoute de vos enjeux business spécifiques.</p>
+            <h3>{t('aboutValue3Title')}</h3>
+            <p>{t('aboutValue3Desc')}</p>
           </div>
           <div className={styles.valueCard}>
             <div className={styles.icon}>💡</div>
-            <h3>Excellence</h3>
-            <p>Nous visons la perfection technique dans chaque architecture réseau et chaque ligne de code produite.</p>
+            <h3>{t('aboutValue4Title')}</h3>
+            <p>{t('aboutValue4Desc')}</p>
           </div>
         </div>
       </section>
 
-      {/* 4. ÉQUIPE / LEADERSHIP */}
-      <section className={`${styles.teamSection} ${styles.scrollFadeIn}`}>
+      {/* 4. NOTRE ÉCOSYSTÈME TECHNIQUE */}
+      <section className={`${styles.techSection} ${styles.scrollFadeIn}`}>
         <div className={styles.sectionHeaderCentered}>
-          <h2>Le Leadership GIORTECH</h2>
-          <p>Rencontrez les experts visionnaires qui pilotent l'innovation et garantissent votre succès technologique au quotidien.</p>
+          <h2>{t('aboutTechHeader')}</h2>
+          <p>{t('aboutTechDesc')}</p>
         </div>
 
-        <div className={styles.gridFourCols}>
-          {team.map((member, index) => (
-            <div key={index} className={styles.teamMember}>
-              <div className={styles.avatarWrapper}>
-                <img src={member.img} alt={`${member.name} - ${member.role}`} />
-                <div className={styles.avatarOverlay}></div>
-              </div>
-              <h4>{member.name}</h4>
-              <p>{member.role}</p>
+        <div className={styles.techCategoriesGrid}>
+          
+          {/* Pôle Développement */}
+          <div className={styles.techCategoryCard}>
+            <h3>Frontend & Mobile</h3>
+            <div className={styles.techBadgesList}>
+              <span className={styles.techItem}>React.js</span>
+              <span className={styles.techItem}>Next.js</span>
+              <span className={styles.techItem}>React Native</span>
+              <span className={styles.techItem}>TypeScript</span>
             </div>
-          ))}
+          </div>
+
+          {/* Pôle Backend & Data */}
+          <div className={styles.techCategoryCard}>
+            <h3>Backend & Architecture</h3>
+            <div className={styles.techBadgesList}>
+              <span className={styles.techItem}>Node.js</span>
+              <span className={styles.techItem}>Spring Boot</span>
+              <span className={styles.techItem}>Python</span>
+              <span className={styles.techItem}>PostgreSQL</span>
+            </div>
+          </div>
+
+          {/* Pôle Cloud & DevOps */}
+          <div className={styles.techCategoryCard}>
+            <h3>Cloud & Infrastructure</h3>
+            <div className={styles.techBadgesList}>
+              <span className={styles.techItem}>AWS</span>
+              <span className={styles.techItem}>Azure</span>
+              <span className={styles.techItem}>Docker</span>
+              <span className={styles.techItem}>Kubernetes</span>
+            </div>
+          </div>
+
+          {/* Pôle Sécurité */}
+          <div className={styles.techCategoryCard}>
+            <h3>Cybersécurité & SecOps</h3>
+            <div className={styles.techBadgesList}>
+              <span className={styles.techItem}>SIEM</span>
+              <span className={styles.techItem}>Firewalling</span>
+              <span className={styles.techItem}>Pentesting</span>
+              <span className={styles.techItem}>Terraform</span>
+            </div>
+          </div>
+
         </div>
       </section>
+      
 
       {/* 5. STATISTIQUES */}
       <section className={`${styles.statsSection} ${styles.scrollFadeIn}`}>
         <div className={styles.gridStats}>
           <div className={styles.statBox}>
             <span className={styles.statNumber}>12+</span>
-            <span className={styles.statLabel}>Années d'Expérience</span>
+            <span className={styles.statLabel}>{t('aboutStatYears')}</span>
           </div>
           <div className={styles.statBox}>
             <span className={styles.statNumber}>150+</span>
-            <span className={styles.statLabel}>Projets Réussis</span>
+            <span className={styles.statLabel}>{t('aboutStatProjects')}</span>
           </div>
           <div className={styles.statBox}>
             <span className={styles.statNumber}>40+</span>
-            <span className={styles.statLabel}>Experts Dédiés</span>
+            <span className={styles.statLabel}>{t('aboutStatExperts')}</span>
           </div>
           <div className={styles.statBox}>
             <span className={styles.statNumber}>98%</span>
-            <span className={styles.statLabel}>Satisfaction Client</span>
+            <span className={styles.statLabel}>{t('aboutStatSatisfaction')}</span>
           </div>
         </div>
       </section>

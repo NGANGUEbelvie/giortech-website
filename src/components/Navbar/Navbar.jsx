@@ -3,6 +3,7 @@ import { Link, NavLink } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import styles from './Navbar.module.css';
 import Logo_giortech from '../../assets/Logo_giortech.png';
+
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const { t, i18n } = useTranslation();
@@ -19,7 +20,6 @@ export default function Navbar() {
     <header className={styles.header}>
       <nav className={styles.navbar}>
         {/* Logo de l'entreprise */}
-
         <Link to="/" className={styles.logoContainer} onClick={closeMenu}>
           <img src={Logo_giortech} alt="Logo Officiel GIORTECH" className={styles.logoImg} />
         </Link>
@@ -38,31 +38,53 @@ export default function Navbar() {
         {/* Liens de navigation */}
         <ul className={`${styles.navLinks} ${isOpen ? styles.showMenu : ''}`}>
           <li>
-            <NavLink to="/" className={({ isActive }) => isActive ? styles.activeLink : ''} onClick={closeMenu} end>
+            <NavLink 
+              to="/" 
+              className={({ isActive }) => isActive ? `${styles.navLink} ${styles.activeLink}` : styles.navLink} 
+              onClick={closeMenu} 
+              end
+            >
               Accueil
             </NavLink>
           </li>
           <li>
-            <NavLink to="/services" className={({ isActive }) => isActive ? styles.activeLink : ''} onClick={closeMenu}>
+            <NavLink 
+              to="/services" 
+              className={({ isActive }) => isActive ? `${styles.navLink} ${styles.activeLink}` : styles.navLink} 
+              onClick={closeMenu}
+            >
               Services
             </NavLink>
           </li>
           <li>
-            <NavLink to="/a-propos" className={({ isActive }) => isActive ? styles.activeLink : ''} onClick={closeMenu}>
+            <NavLink 
+              to="/a-propos" 
+              className={({ isActive }) => isActive ? `${styles.navLink} ${styles.activeLink}` : styles.navLink} 
+              onClick={closeMenu}
+            >
               À Propos
             </NavLink>
           </li>
           <li>
-            <NavLink to="/projets" className={({ isActive }) => isActive ? styles.activeLink : ''} onClick={closeMenu}>
+            <NavLink 
+              to="/projets" 
+              className={({ isActive }) => isActive ? `${styles.navLink} ${styles.activeLink}` : styles.navLink} 
+              onClick={closeMenu}
+            >
               Projets
             </NavLink>
           </li>
           <li>
-            <NavLink to="/contact" className={({ isActive }) => styles.contactBtn} onClick={closeMenu}>
+            <NavLink 
+              to="/contact" 
+              className={({ isActive }) => isActive ? `${styles.contactBtn} ${styles.activeContactBtn}` : styles.contactBtn} 
+              onClick={closeMenu}
+            >
               Contact
             </NavLink>
           </li>
-          {/* 3. LE SÉLECTEUR DE LANGUE AJOUTÉ À LA LISTE */}
+          
+          {/* SÉLECTEUR DE LANGUE */}
           <li className={styles.langSwitcherItem}>
             <div className={styles.langSwitcherNav}>
               <button 
@@ -79,8 +101,6 @@ export default function Navbar() {
               </button>
             </div>
           </li>
-
-
         </ul>
       </nav>
     </header>

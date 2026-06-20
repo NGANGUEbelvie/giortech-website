@@ -77,7 +77,11 @@
   color: #43474e;
   cursor: pointer;
   transition: all 0.25s ease;
-}
+  text-decoration: none;
+  display: inline-flex;
+  align-items:center;
+  justify-content:center;
+ }
 
 .filterBtn:hover {
   background-color: #c3e8ff;
