@@ -158,7 +158,7 @@ const resources = {
       infoEmailTitle: "Email",
       infoEmailSub: "Support technique 24/7",
       infoHoursTitle: "Horaires",
-      infoHoursDays: "Lundi - Vendredi",
+      infoHoursDays: "Lundi - Samedi",
       infoHoursTime: "8h00 - 18h00",
 
       

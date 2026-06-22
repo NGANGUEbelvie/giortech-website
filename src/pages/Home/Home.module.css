@@ -310,8 +310,16 @@
   }
 }
 
-/* Assure-toi que le conteneur principal de l'accueil est en position: relative */
+/* S'assurer que le conteneur principal de l'accueil est en position: relative */
 .homePageContainer {
   position: relative;
 }
+
+.animateVisible .serviceCard:hover {
+  transform: translateY(-6px) !important;
+  border-bottom-color: #0099CC;
+  box-shadow: 0 10px 25px rgba(26, 58, 92, 0.12);
+  transition-delay: 0s !important;
+}
+
 

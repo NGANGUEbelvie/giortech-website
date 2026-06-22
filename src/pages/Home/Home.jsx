@@ -1,15 +1,17 @@
 import { useState, useEffect } from 'react';
 import styles from './Home.module.css';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import UI_UX from "../../assets/UI_UX.png";
 import Developpement from "../../assets/Developpement.png";
 import IT from "../../assets/IT.png";
 import cybersec from "../../assets/cybersec.jpg";
 import { useTranslation } from 'react-i18next';
+import cybersecurity_image from '../../assets/cybersecurity_image.png';
 
 export default function Home() {
   const { t } = useTranslation();
   const [currentSlide, setCurrentSlide] = useState(0);
+  const navigate = useNavigate();
 
   const slides = [
     {
@@ -25,7 +27,7 @@ export default function Home() {
     {
       title: t('homeSlide3Title'),
       desc: t('homeSlide3Desc'),
-      img: cybersec
+      img: cybersecurity_image
     },
     {
       title: t('homeSlide4Title'),
@@ -124,25 +126,44 @@ export default function Home() {
         </div>
 
         <div className={styles.gridExpertises}>
-          <div className={styles.serviceCard} style={{ '--card-index': 1 }}>
+          <div 
+            className={styles.serviceCard} 
+            style={{ '--card-index': 1, cursor: 'pointer' }}
+            onClick={() => navigate('/services#frontend')}
+          >
             <div className={styles.iconContainer}>🌐</div>
             <h3>{t('expertise1Title')}</h3>
             <p>{t('expertise1Desc')}</p>
           </div>
 
-          <div className={styles.serviceCard} style={{ '--card-index': 2 }}>
+          {/* Carte 2 -> Envoie à l'ID #uiux de Services */}
+          <div 
+            className={styles.serviceCard} 
+            style={{ '--card-index': 2, cursor: 'pointer' }}
+            onClick={() => navigate('/services#uiux')}
+          >
             <div className={styles.iconContainer}>🎨</div>
             <h3>{t('expertise2Title')}</h3>
             <p>{t('expertise2Desc')}</p>
           </div>
 
-          <div className={styles.serviceCard} style={{ '--card-index': 3 }}>
+          {/* Carte 3 -> Envoie à l'ID #cloud de Services */}
+          <div 
+            className={styles.serviceCard} 
+            style={{ '--card-index': 3, cursor: 'pointer' }}
+            onClick={() => navigate('/services#cloud')}
+          >
             <div className={styles.iconContainer}>☁️</div>
             <h3>{t('expertise3Title')}</h3>
             <p>{t('expertise3Desc')}</p>
           </div>
 
-          <div className={styles.serviceCard} style={{ '--card-index': 4 }}>
+          {/* Carte 4 -> Envoie à l'ID #cyber de Services */}
+          <div 
+            className={styles.serviceCard} 
+            style={{ '--card-index': 4, cursor: 'pointer' }}
+            onClick={() => navigate('/services#cyber')}
+          >
             <div className={styles.iconContainer}>🛡️</div>
             <h3>{t('expertise4Title')}</h3>
             <p>{t('expertise4Desc')}</p>
