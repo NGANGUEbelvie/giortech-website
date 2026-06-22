@@ -234,7 +234,7 @@ export default function Contact() {
                   </div>
                   <div className={styles.cardText}>
                     <h3>{t('infoEmailTitle')}</h3>
-                    <a href="mailto:career@giortech.com" className={styles.emailLink}>career@giortech.com</a>
+                    <a href="mailto:info@giortech.com" className={styles.emailLink}>info@giortech.com</a>
                     <span className={styles.subText}>{t('infoEmailSub')}</span>
                   </div>
                 </div>

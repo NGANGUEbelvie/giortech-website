@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import styles from './About.module.css';
 import img_services from '../../assets/img_services.png';
 import { useTranslation } from 'react-i18next';
-import Img_mission from '../../assets/Img_mission.png';
+import Histoire from '../../assets/Histoire.png';
 
 export default function About() {
   const { t } = useTranslation();
@@ -55,7 +55,7 @@ export default function About() {
             </p>
             <div className={styles.imageWrapper}>
               <img 
-                src={Img_mission} 
+                src={Histoire} 
                 alt="Bureaux de GIORTECH" 
               />
             </div>

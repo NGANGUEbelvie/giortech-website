@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import styles from './Services.module.css';
-import UI_UX from "../../assets/UI_UX.png";
+import UI_UX from "../../assets/UI_UX.jpeg";
 import Developpement from "../../assets/Developpement.png";
 import IT from "../../assets/IT.png";
 import Cyber from "../../assets/Cyber.png";
