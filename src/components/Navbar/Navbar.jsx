@@ -44,7 +44,7 @@ export default function Navbar() {
               onClick={closeMenu} 
               end
             >
-              Accueil
+              {t('navAccueil')}
             </NavLink>
           </li>
           <li>
@@ -53,7 +53,7 @@ export default function Navbar() {
               className={({ isActive }) => isActive ? `${styles.navLink} ${styles.activeLink}` : styles.navLink} 
               onClick={closeMenu}
             >
-              Services
+              {t('navServices')}
             </NavLink>
           </li>
           <li>
@@ -62,7 +62,7 @@ export default function Navbar() {
               className={({ isActive }) => isActive ? `${styles.navLink} ${styles.activeLink}` : styles.navLink} 
               onClick={closeMenu}
             >
-              À Propos
+              {t('navAPropos')}
             </NavLink>
           </li>
           <li>
@@ -71,7 +71,7 @@ export default function Navbar() {
               className={({ isActive }) => isActive ? `${styles.navLink} ${styles.activeLink}` : styles.navLink} 
               onClick={closeMenu}
             >
-              Projets
+              {t('navProjets')}
             </NavLink>
           </li>
           <li>
@@ -80,7 +80,7 @@ export default function Navbar() {
               className={({ isActive }) => isActive ? `${styles.contactBtn} ${styles.activeContactBtn}` : styles.contactBtn} 
               onClick={closeMenu}
             >
-              Contact
+              {t('navContact')}
             </NavLink>
           </li>
           

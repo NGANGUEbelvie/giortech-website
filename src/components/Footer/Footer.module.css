@@ -34,6 +34,7 @@
   color: rgba(255, 255, 255, 0.7);
   line-height: 1.6;
   margin-top: 15px;
+
 }
 
 .footerNav, .contactList {
@@ -50,6 +51,7 @@
   text-decoration: none;
   transition: color 0.3s;
   font-size: 0.95rem;
+  font-weight: 500;
 }
 
 .footerNav a:hover {
@@ -59,6 +61,7 @@
 .contactList li {
   font-size: 0.9rem;
   color: rgba(255, 255, 255, 0.7);
+  font-weight: 500px;
 }
 
 .newsletterForm {
@@ -74,6 +77,7 @@
   border-radius: 6px 0 0 6px;
   width: 100%;
   font-size: 0.9rem;
+  font-weight: 500;
 }
 
 .newsletterForm input:focus {
@@ -102,4 +106,5 @@
   text-align: center;
   font-size: 0.85rem;
   color: rgba(255, 255, 255, 0.5);
+  font-weight: 500px;
 }

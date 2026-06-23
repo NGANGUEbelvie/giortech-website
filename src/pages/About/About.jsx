@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import styles from './About.module.css';
-import img_services from '../../assets/img_services.png';
+import Img_About from '../../assets/Img_About.jpeg';
 import { useTranslation } from 'react-i18next';
 import Histoire from '../../assets/Histoire.png';
 
@@ -33,7 +33,7 @@ export default function About() {
       <section
         className={`${styles.heroSection} ${styles.scrollFadeIn}`}
         style={{
-          backgroundImage: `linear-gradient(rgb(132, 217, 253, 0.0), rgba(108, 196, 234, 0.0)), url(${img_services})`
+          backgroundImage: `linear-gradient(rgb(132, 217, 253, 0.0), rgba(108, 196, 234, 0.0)), url(${Img_About})`
         }}
       >
         <div className={styles.heroText}>

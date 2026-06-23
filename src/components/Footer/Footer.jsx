@@ -26,8 +26,8 @@ export default function Footer() {
           <h3>Contact</h3>
           <ul className={styles.contactList}>
             <li>📍 Douala, Cameroun</li>
-            <li>✉️ contact@giortech.com</li>
-            <li>📞 +237 6XX XXX XXX</li>
+            <li>✉️ info@giortech.com</li>
+            <li>📞 +237 691 499 305 </li>
           </ul>
         </div>
 

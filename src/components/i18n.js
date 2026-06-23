@@ -4,6 +4,14 @@ import { initReactI18next } from 'react-i18next';
 const resources = {
     fr: {
     translation: {
+      
+      navAccueil: "Accueil",
+      navServices: "Services",
+      navAPropos: "À Propos",
+      navProjets: "Projets",
+      navContact: "Contact",
+
+
       // Carrousel & Boutons
       homeSlide1Title: "GIORTECH - Votre Partenaire en Transformation Digitale",
       homeSlide1Desc: "Expertise technologique au service de votre croissance. Nous concevons des solutions numériques sécurisées, innovantes et sur mesure pour les leaders de demain.",
@@ -169,6 +177,12 @@ const resources = {
   },
   en: {
     translation: {
+
+      navAccueil: "Home",
+      navServices: "Services",
+      navAPropos: "About",
+      navProjets: "Projects",
+      navContact: "Contact Us",
       // Carrousel & Boutons
       homeSlide1Title: "GIORTECH - Your Digital Transformation Partner",
       homeSlide1Desc: "Technological expertise driving your growth. We design secure, innovative, and tailored digital solutions for tomorrow's leaders.",

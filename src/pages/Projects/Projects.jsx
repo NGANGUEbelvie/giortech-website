@@ -15,27 +15,28 @@ export default function Projects() {
 
   const projectList = [
     {
-      title: "NeoBank Mobile App",
+      title: "Deutch Banque",
       client: t('clientBanking'),
-      tags: ["React Native", "Node.js", "AWS"],
+      tags: ["cloud migration", "devops", "GKE"],
       img: "https://lh3.googleusercontent.com/aida-public/AB6AXuBwXfBpJo1e6hlslA9icN70XtFA7_WgQyho5MaaZUpj7TKu6EXdi7iE-WPsHW7i46fCeIqaFD2U8y6evkTpqlPTQtMTcYRRnEOU0ut1CvhmPSTRc984Fn2bj5A7-MGkS7ySSBoVucp39yW3YRy5XSY_kLiKJjP48EP0RjATV2K6yxlOU-tqLRMfwMNBVMp18yF7X4BFHW0zOPw8i-plKNC4lYXOyouFhVAnvZPEZSGPPZILO5o1AzW10HQL9WJyw5Ut6qfPay5DyJ4s"
     },
+    
     {
-      title: "Cloud Migration Scalable",
-      client: t('clientTelecoms'),
-      tags: ["Azure", "Terraform", "Kubernetes"],
-      img: "https://lh3.googleusercontent.com/aida-public/AB6AXuC23fuv93uwZiYCt4Z2j_lf_2jDHEFGP2jxwAvcLuow694yrhOa4Ja9pkxFb1lPBtxqdPi2uAxNZUMkC_4AzNFBf6DVjAx19_FRKpiysOqD_O9AucvQ5VnbNF5trYKXhZoci-HcTHNgsogvoa0IBPq0g3mdCj-5-089DyKWebTOxda11jCQlk5KJRZEI_6rxdHToVCVlculkfbbgzIFuqgkRK0rZX5aPcCwTXOSI9gu9C_p6pdyNSO0a3reoVx2cYJLLofmFNLGn6Zn"
-    },
-    {
-      title: "Audit & Fortification SOC",
-      client: t('clientLogistics'),
-      tags: ["Pentesting", "SIEM", "Firewalling"],
+      title: " United Healthcare",
+      client: t('clientInsurance'),
+      tags: ["Aws to GCP", "Devops", "Python"],
       img: "https://lh3.googleusercontent.com/aida-public/AB6AXuA-36o-bUir0jIfptCe9ewvq13Ssp2mGuz-3-PbCti6yKoFWwcJJGP-D7IoswIsQwME9MP5VFXgNQGlukAcDHPOi6ojN0UKDSnr1UKB1UmbG0BYwaDetFpEki7custZhPXvlZrUHATw_VKVat2KbRzu7QomHqJ2muTec1YB9-F62kDz1Cxvj0fWlQr8o5-Jfz4Nf0iIY4H_9XoaZl0dMxQ_fWcEJqcq0jfgriNdLaCrOsnmBKzYFNSK3CES7eU_ebgQcbQJdPSdDu0-"
     },
     {
-      title: "Plateforme Omnicanale UX",
-      client: t('clientRetail'),
-      tags: ["Figma", "Next.js", "Tailwind"],
+      title: "Charles schwabs",
+      client: t('clientBanking'),
+      tags: ["cloud run", "google cloud ", "Kubernetes"],
+      img: "https://lh3.googleusercontent.com/aida-public/AB6AXuC23fuv93uwZiYCt4Z2j_lf_2jDHEFGP2jxwAvcLuow694yrhOa4Ja9pkxFb1lPBtxqdPi2uAxNZUMkC_4AzNFBf6DVjAx19_FRKpiysOqD_O9AucvQ5VnbNF5trYKXhZoci-HcTHNgsogvoa0IBPq0g3mdCj-5-089DyKWebTOxda11jCQlk5KJRZEI_6rxdHToVCVlculkfbbgzIFuqgkRK0rZX5aPcCwTXOSI9gu9C_p6pdyNSO0a3reoVx2cYJLLofmFNLGn6Zn"
+    },
+    {
+      title: "Caris healthcare",
+      client: t('clientInsurance'),
+      tags: ["Go", "React.js", "Infrastructure"],
       img: "https://lh3.googleusercontent.com/aida-public/AB6AXuBm0WLQ0s4G7nGtGt9fyBCJTnghwivuSjfllzD3JoVXBRnRzQMmDDj7skS6dW2aJl92Kl8DJiAVrPGcO_09FxjkuU-nADEYXNBF7FirpgSAU6axMsnVF8HKFIwfHHbTvUIT6YaD075p_ZHi44gHBPyIaJuqPgQDeVBeYaS3BXd-t5LrRnT4ZbmP7Zc7V2ooevXfPzVxzNrPxmTOzrZdUvm-DBFPN0tZjSi634TgL9Iou__jJ74iNDhZGvOSqqlTfDEKqmWto2BjQUGu"
     },
     {
@@ -59,7 +60,7 @@ export default function Projects() {
       <section
         className={styles.heroSection}
         style={{
-          backgroundImage: `linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)), url(${IT})`
+          backgroundImage: `linear-gradient(rgba(74, 185, 250, 0.1), rgb(58, 191, 248, 0.1)), url(${IT})`
         }}
       >
         <div className={styles.heroContent}>
