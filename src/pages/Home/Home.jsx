@@ -88,19 +88,21 @@ export default function Home() {
           <div
             key={index}
             className={`${styles.carouselSlide} ${index === currentSlide ? styles.activeSlide : ''}`}
-            style={{ backgroundImage: `linear-gradient(90deg, rgb(150, 201, 255, 0.0) 0%, rgba(128, 189, 254, 0.0) 50%, rgba(26, 58, 92, 0.0) 50%), url(${slide.img})` }}
-          >
-            <div className={styles.slideContent}>
-              <h1>{slide.title}</h1>
-              <p>{slide.desc}</p>
-              <div className={styles.btnGroup}>
-                <Link to="/services" className={styles.btnPrimary}>
-                  {t('discoverServices')}
-                </Link>
-                <Link to="/contact" className={styles.btnSecondary}>
-                  {t('contactUs')}
-                </Link>
-              </div>
+            style={{ backgroundImage: `linear-gradient(90deg, rgba(79, 161, 249, 0.1) 0%, rgba(8, 22, 36, 0.0) 50%, rgba(26, 58, 92, 0.0) 50%), url(${slide.img})` }}
+
+          > <div className={styles.slideContentBox}>
+              <div className={styles.slideContent}>
+                <h1 className={styles.animatedTitle}>{slide.title}</h1>
+                <p className={styles.animatedDesc}>{slide.desc}</p>
+                <div className={styles.btnGroup}>
+                  <Link to="/services" className={styles.btnPrimary}>
+                    {t('discoverServices')}
+                  </Link>
+                  <Link to="/contact" className={styles.btnSecondary}>
+                    {t('contactUs')}
+                  </Link>
+                </div>
+                </div>
               </div>
             </div>
           
@@ -179,11 +181,11 @@ export default function Home() {
             <span className={styles.statLabel}>{t('statYears')}</span>
           </div>
           <div className={styles.statBox} style={{ '--stat-index': 1 }}>
-            <span className={styles.statCounter}>50+</span>
+            <span className={styles.statCounter}>30+</span>
             <span className={styles.statLabel}>{t('statProjects')}</span>
           </div>
           <div className={styles.statBox} style={{ '--stat-index': 2 }}>
-            <span className={styles.statCounter}>30+</span>
+            <span className={styles.statCounter}>10+</span>
             <span className={styles.statLabel}>{t('statCompanies')}</span>
           </div>
           <div className={styles.statBox} style={{ '--stat-index': 3 }}>
