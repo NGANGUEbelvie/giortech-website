@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="fr">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -9,5 +9,65 @@
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
+
+    <!-- Kaefra Lead Capture — paste before </body> on giortech -->
+    <script>
+    (function() {
+      var KAEFRA_URL = "https://kaefra.com";
+      var SITE = "giortech";
+      var STORAGE_KEY = "kaefra_lead_" + SITE;
+
+      function trackLead(name, email, message, assignedTo) {
+        // Post to Kaefra app iframe endpoint
+        var iframe = document.createElement("iframe");
+        iframe.style.display = "none";
+        var params = "site=" + encodeURIComponent(SITE)
+          + "&url=" + encodeURIComponent(window.location.href)
+          + "&ref=" + encodeURIComponent(document.referrer || "")
+          + "&ua=" + encodeURIComponent(navigator.userAgent)
+          + (name ? "&name=" + encodeURIComponent(name) : "")
+          + (email ? "&email=" + encodeURIComponent(email) : "")
+          + (message ? "&message=" + encodeURIComponent(message) : "");
+          + (assignedTo ? "&assigned_to=" + encodeURIComponent(assignedTo) : "");
+        iframe.src = KAEFRA_URL + "/lead-capture?" + params;
+        document.body.appendChild(iframe);
+        setTimeout(function(){ iframe.remove(); }, 3000);
+      }
+
+      // Rendre la fonction accessible depuis React
+      window.KaefraTrackLead = trackLead;
+
+      // Passive visit track on load
+      trackLead();
+
+      // Popup after 5s if not already submitted
+      if (!localStorage.getItem(STORAGE_KEY)) {
+        setTimeout(function() {
+          var box = document.createElement("div");
+          box.setAttribute("data-kaefra","1");
+          box.style.cssText = "position:fixed;bottom:24px;right:24px;z-index:99999;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;";
+          box.innerHTML = '<div style="background:#fff;border-radius:16px;box-shadow:0 8px 40px rgba(0,0,0,0.18);padding:24px 24px 20px;width:300px;border:1px solid #e2e8f0;position:relative;">'
+            + '<button onclick="document.querySelector(\'[data-kaefra]\').remove()" style="position:absolute;top:10px;right:14px;background:none;border:none;cursor:pointer;font-size:20px;color:#94a3b8;line-height:1;">&times;</button>'
+            + '<div style="font-weight:700;font-size:15px;color:#1e293b;margin-bottom:4px;">Stay in the loop 👋</div>'
+            + '<div style="color:#64748b;font-size:13px;margin-bottom:14px;">Get updates and exclusive offers.</div>'
+            + '<input id="kf_name" placeholder="Your name" style="width:100%;box-sizing:border-box;padding:9px 12px;border:1px solid #e2e8f0;border-radius:8px;font-size:13px;margin-bottom:8px;outline:none;color:#1e293b;" />'
+            + '<input id="kf_email" type="email" placeholder="Your email address" style="width:100%;box-sizing:border-box;padding:9px 12px;border:1px solid #e2e8f0;border-radius:8px;font-size:13px;margin-bottom:8px;outline:none;color:#1e293b;" />'
+            + '<textarea id="kf_message" placeholder="Your message" rows="3" style="width:100%;box-sizing:border-box;padding:9px 12px;border:1px solid #e2e8f0;border-radius:8px;font-size:13px;margin-bottom:12px;outline:none;color:#1e293b;resize:none;font-family:inherit;"></textarea>'
+            + '<button id="kf_submit" style="width:100%;padding:10px;background:#2563eb;color:#fff;border:none;border-radius:8px;font-weight:600;font-size:13px;cursor:pointer;">Get Updates</button>'
+            + '</div>';
+          document.body.appendChild(box);
+          document.getElementById("kf_submit").addEventListener("click", function() {
+            var n = document.getElementById("kf_name").value.trim();
+            var e = document.getElementById("kf_email").value.trim();
+            var m = document.getElementById("kf_message").value.trim();
+            if (!e) { document.getElementById("kf_email").style.border = "1px solid #ef4444"; return; }
+            localStorage.setItem(STORAGE_KEY, "1");
+            trackLead(n, e, m);
+            document.querySelector("[data-kaefra]").remove();
+          });
+        }, 5000);
+      }
+    })();
+    </script>
   </body>
 </html>

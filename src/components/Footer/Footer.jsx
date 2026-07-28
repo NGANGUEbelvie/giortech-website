@@ -18,12 +18,13 @@ export default function Footer() {
             <Link to="/services">Services</Link>
             <Link to="/a-propos">À Propos</Link>
             <Link to="/projets">Projets</Link>
+            <Link to="/career">Carrière</Link>
           </nav>
         </div>
 
         {/* Colonne 3 : Contact */}
         <div className={styles.footerCol}>
-          <h3>Contact</h3>
+          <Link to="/contact" style={{ color: "white", textDecoration: "none" }}><h3>Contact</h3></Link>
           <ul className={styles.contactList}>
             <li>📍 Douala, Cameroun</li>
             <li>✉️ info@giortech.com</li>

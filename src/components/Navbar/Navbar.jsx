@@ -74,6 +74,16 @@ export default function Navbar() {
               {t('navProjets')}
             </NavLink>
           </li>
+
+          <li>
+            <NavLink 
+              to="/career" 
+              className={({ isActive }) => isActive ? `${styles.navLink} ${styles.activeLink}` : styles.navLink} 
+              onClick={closeMenu}
+            >
+              {t('Career')}
+            </NavLink>
+          </li>
           <li>
             <NavLink 
               to="/contact" 
@@ -83,6 +93,8 @@ export default function Navbar() {
               {t('navContact')}
             </NavLink>
           </li>
+
+          
           
           {/* SÉLECTEUR DE LANGUE */}
           <li className={styles.langSwitcherItem}>

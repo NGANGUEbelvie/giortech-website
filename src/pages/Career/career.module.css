@@ -1,0 +1,359 @@
+.careerContainer {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0 20px;
+}
+
+/* --- 1. HERO SECTION --- */
+.heroSection {
+  display: flex;
+  align-items: center;
+  background-size: cover;
+  background-position: center;
+  padding: 140px 64px;
+  box-sizing: border-box;
+  width: calc(100% + 40px);
+  margin: 0 -20px;
+  min-height: 450px;
+  justify-content: flex-start;
+  text-align: left;
+}
+
+.heroContent {
+  max-width: 650px;
+  background: rgba(39, 124, 227, 0.08);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  padding: 40px;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+}
+
+.heroContent h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 20px;
+}
+
+.heroContent p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  color: #f1f5fa;
+}
+
+/* --- 2. PERKS / AVANTAGES SECTION --- */
+.perksSection {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 80px 44px;
+}
+
+.gridThreeCols {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  margin-top: 48px;
+}
+
+.perkCard {
+  background-color: #ffffff;
+  padding: 32px;
+  border-radius: 12px;
+  box-shadow: 0px 4px 20px rgba(26, 58, 92, 0.05);
+  border-bottom: 4px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.perkCard:hover {
+  transform: translateY(-4px);
+  border-bottom-color: #0356f0;
+}
+
+.perkIcon {
+  font-size: 28px;
+  width: 54px;
+  height: 54px;
+  background-color: rgba(3, 86, 240, 0.1);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  color: #0356f0;
+}
+
+.perkCard h3 {
+  font-size: 1.35rem;
+  color: #154375;
+  margin-bottom: 12px;
+}
+
+.perkCard p {
+  color: #43474e;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+/* --- 3. PROCESSUS DE RECRUTEMENT --- */
+.processSection {
+  background-color: #F4F7FB;
+  width: calc(100% + 40px);
+  margin: 0 -20px;
+  padding: 80px 64px;
+  box-sizing: border-box;
+}
+
+.processInner {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.processGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  margin-top: 48px;
+}
+
+.processCard {
+  background: #ffffff;
+  padding: 28px;
+  border-radius: 12px;
+  position: relative;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+}
+
+.processStep {
+  position: absolute;
+  top: -15px;
+  right: 20px;
+  font-size: 3rem;
+  font-weight: 800;
+  color: rgba(3, 86, 240, 0.08);
+}
+
+.processCard h4 {
+  font-size: 1.2rem;
+  color: #154375;
+  margin-bottom: 10px;
+}
+
+.processCard p {
+  font-size: 14px;
+  color: #43474e;
+  line-height: 1.5;
+}
+
+/* --- 4. LISTE DES OFFRES --- */
+.jobsSection {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 80px 44px;
+}
+
+.sectionHeader {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.sectionHeader h2 {
+  font-size: 2.5rem;
+  color: #0356f0;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.sectionHeader p {
+  color: #43474e;
+  font-size: 1.1rem;
+}
+
+.jobsList {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.jobCard {
+  background: #ffffff;
+  border: 1px solid rgba(21, 67, 117, 0.08);
+  padding: 28px 32px;
+  border-radius: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+  transition: all 0.3s ease;
+}
+
+.jobCard:hover {
+  transform: translateY(-3px);
+  border-color: rgba(3, 86, 240, 0.2);
+  box-shadow: 0 12px 30px rgba(3, 86, 240, 0.06);
+}
+
+.jobInfo h3 {
+  font-size: 1.35rem;
+  color:#154375;
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+
+.jobMeta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  color: #64748b;
+  font-size: 0.9rem;
+}
+
+.jobMeta span {
+  background-color: #f1f5fa;
+  padding: 6px 14px;
+  border-radius: 8px;
+  font-weight: 600;
+}
+
+.btnApply {
+  background-color: #0356f0;
+  color: #ffffff;
+  padding: 12px 28px;
+  border-radius: 10px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background-color 0.2s, transform 0.2s;
+  white-space: nowrap;
+}
+
+.btnApply:hover {
+  background-color: #0044cc;
+  transform: scale(1.03);
+}
+
+/* --- RESPONSIVITÉ --- */
+@media (max-width: 1024px) {
+  .gridThreeCols { grid-template-columns: repeat(2, 1fr); }
+  .processGrid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 768px) {
+  .heroSection { padding: 80px 20px; }
+  .heroContent h1 { font-size: 2.2rem; }
+  .gridThreeCols, .processGrid { grid-template-columns: 1fr; }
+  .perksSection, .processSection, .jobsSection { padding: 60px 20px; }
+  .jobCard {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+  .btnApply { width: 100%; text-align: center; box-sizing: border-box; }
+}
+
+/* --- FORMULAIRE DE CANDIDATURE --- */
+
+/* Conteneur global du formulaire qui apparaît sous la carte */
+.applyForm {
+  width: 100%;
+  background-color: #f8fafc;
+  padding: 24px;
+  border-radius: 8px;
+  margin-top: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  border: 1px solid #cbd5e1;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.02);
+  animation: fadeInForm 0.3s ease-out; /* Petite animation fluide à l'ouverture */
+}
+
+@keyframes fadeInForm {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.applyForm h4 {
+  margin: 0 0 4px 0;
+  color: #1e293b;
+  font-size: 1.1rem;
+}
+
+/* Groupes de champs (Label + Input) */
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.formGroup label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #475569;
+}
+
+.formGroup input[type="text"],
+.formGroup input[type="email"] {
+  padding: 10px 14px;
+  border-radius: 6px;
+  border: 1px solid #cbd5e1;
+  font-size: 0.95rem;
+  color: #1e293b;
+  background-color: #ffffff;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+/* Effet au clic sur les inputs */
+.formGroup input:focus {
+  outline: none;
+  border-color: #0986ed;
+  box-shadow: 0 0 0 3px rgba(9, 134, 237, 0.15);
+}
+
+/* Zone d'upload personnalisée (Label qui cache l'input file) */
+.fileUploadLabel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 14px;
+  background-color: #ffffff;
+  border: 2px dashed #0986ed;
+  border-radius: 6px;
+  cursor: pointer;
+  text-align: center;
+  color: #0986ed;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.fileUploadLabel:hover {
+  background-color: #eff6ff;
+  border-color: #1d4ed8;
+  color: #1d4ed8;
+}
+
+/* Bouton de soumission du formulaire */
+.btnSubmitApply {
+  padding: 12px 20px;
+  background-color: #0986ed;
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  align-self: flex-start;
+  margin-top: 8px;
+  transition: background-color 0.2s;
+}
+
+.btnSubmitApply:hover:not(:disabled) {
+  background-color: #026ec7;
+}
+
+.btnSubmitApply:disabled {
+  background-color: #94a3b8;
+  cursor: not-allowed;
+  opacity: 0.7;
+}

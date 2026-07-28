@@ -1,0 +1,143 @@
+.dashboardContainer {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 120px 44px 80px;
+}
+
+.dashboardContainer h1 {
+  font-size: 2.5rem;
+  color: #0356f0;
+  margin-bottom: 8px;
+}
+
+.subtitle {
+  color:#002444 ;
+  margin-bottom: 40px;
+}
+
+/* --- SECTIONS --- */
+.formSection {
+  background: #ffffff;
+  border: 1px solid rgba(21, 67, 117, 0.08);
+  padding: 32px;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+  margin-bottom: 48px;
+}
+
+.tableSection {
+  background: #ffffff;
+  border: 1px solid rgba(21, 67, 117, 0.08);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+  padding: 24px; /* Ajouté pour donner de l'espace autour du titre et de la barre de recherche */
+}
+
+.formSection h2, .tableSection h2 {
+  font-size: 1.5rem;
+  color: #0356f0;
+  margin-top: 0;
+  margin-bottom: 24px;
+}
+
+/* --- FORMULAIRE --- */
+.formGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.inputGroup label {
+  font-weight: 600;
+  color: #154375;
+  font-size: 0.95rem;
+}
+
+.inputGroup input, .inputGroup select {
+  padding: 12px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.inputGroup input:focus, .inputGroup select:focus {
+  border-color: #0356f0;
+}
+
+/* --- BOUTONS --- */
+.btnSubmit {
+  grid-column: span 2;
+  background: #0356f0;
+  color: white;
+  padding: 14px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 12px;
+  transition: background 0.2s;
+}
+
+.btnSubmit:hover {
+  background: #0044cc;
+}
+
+.btnDelete {
+  background: #ef4444;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.2s;
+}
+
+.btnDelete:hover {
+  background: #dc2626;
+}
+
+/* --- TABLEAUX (OFFRES & CANDIDATURES) --- */
+.jobsTable {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  margin-top: 10px;
+}
+
+.jobsTable th {
+  background: #f8fafc;
+  padding: 16px 24px;
+  color: #154375;
+  font-weight: 700;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.jobsTable td {
+  padding: 16px 24px;
+  border-bottom: 1px solid #e2e8f0;
+  color: #334155;
+  vertical-align: middle;
+}
+
+.jobsTable tbody tr:hover {
+  background-color: #f8fafc; /* Effet de survol discret sur les lignes */
+}
+
+/* --- RESPONSIVITÉ --- */
+@media (max-width: 768px) {
+  .dashboardContainer { padding: 100px 20px 60px; }
+  .formGrid { grid-template-columns: 1fr; }
+  .btnSubmit { grid-column: span 1; }
+  .jobsTable th, .jobsTable td { padding: 12px; font-size: 0.9rem; }
+}
